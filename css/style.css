@@ -1,0 +1,239 @@
+/* Reset geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Container principal */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
+
+/* Layout e estrutura */
+.matrizes {
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.matrizes a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.matrizes a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h4 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 28px;
+    color: #fff;
+}
+
+h4 {
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+/* Botões */
+button,
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover,
+.btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* Select */
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+select option {
+    background: #1e3c72;
+    color: #fff;
+}
+
+/* Detalhamento */
+.detalhamento {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.detalhamento h3 {
+    font-size: 22px;
+    color: #16a085;
+    margin-bottom: 10px;
+}
+
+.detalhamento ul {
+    list-style: none;
+}
+
+.detalhamento li {
+    font-size: 18px;
+    color: #34495e;
+    margin: 10px 0;
+}
+
+/* Código formatado */
+pre {
+    background: #ecf0f1;
+    color: #2c3e50;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #f39c12;
+    color: white;
+}
+
+td {
+    background: #ecf0f1;
+    color: #333;
+}
+
+/* Resultados */
+.resultado a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.resultado a:hover {
+    text-decoration: underline;
+}
+
+.resultado-final {
+    background: #f1c40f;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Inputs */
+input {
+    width: 50px;
+    padding: 8px;
+    text-align: center;
+    background: #444;
+    border: 1px solid #777;
+    color: white;
+    margin: 5px;
+}
+
+/* Botões agrupados */
+.botoes-box {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.botoes-box button {
+    padding: 10px 15px;
+    font-size: 18px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .detalhamento h3 {
+        font-size: 20px;
+    }
+
+    .detalhamento li,
+    .resultado a {
+        font-size: 16px;
+    }
+}
