@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $explicacao = "";
     switch ($operacao) {
         case 'adicao':
+            $explicacao .= "<p>A soma das matrizes é realizada somando os elementos correspondentes:</p>";
             $explicacao .= "<table border='1' style='border-collapse: collapse; text-align: center;'>\n";
             for ($i = 0; $i < $sizeA; $i++) {
                 $explicacao .= "<tr>\n";
@@ -47,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
 
         case 'subtracao':
+            $explicacao .= "<p>A subtração das matrizes é realizada subtraindo os elementos correspondentes:</p>";
             $explicacao .= "<table border='1' style='border-collapse: collapse; text-align: center;'>\n";
             for ($i = 0; $i < $sizeA; $i++) {
                 $explicacao .= "<tr>\n";
@@ -60,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
 
         case 'multiplicacao':
+            $explicacao .= "<p>A multiplicação de matrizes segue a regra de multiplicar cada linha da primeira matriz pela coluna correspondente da segunda matriz.</p>";
             $explicacao .= "<table border='1' style='border-collapse: collapse; text-align: center;'>\n";
             for ($i = 0; $i < $sizeA; $i++) {
                 $explicacao .= "<tr>\n";
@@ -69,12 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     for ($k = 0; $k < $sizeA; $k++) {
                         $produto = $matrizA[$i][$k] * $matrizB[$k][$j];
                         $resultado[$i][$j] += $produto;
-                        $detalhesOperacao .= "{$matrizA[$i][$k]} * {$matrizB[$k][$j]} ";
+                        $detalhesOperacao .= "{$matrizA[$i][$k]} × {$matrizB[$k][$j]}";
                         if ($k < $sizeA - 1) {
-                            $detalhesOperacao .= "+ ";
+                            $detalhesOperacao .= " + ";
                         }
                     }
-                    $detalhesOperacao .= "= {$resultado[$i][$j]}";
+                    $detalhesOperacao .= " = {$resultado[$i][$j]}";
                     $explicacao .= "<td>$detalhesOperacao</td>\n";
                 }
                 $explicacao .= "</tr>\n";
@@ -84,8 +87,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         default:
             die("<script>alert('Erro: Operação inválida.'); window.history.back();</script>");
     }
+
+    // Mapeia a operação para um nome legível
+    $nomesOperacoes = [
+        'adicao' => 'Adição',
+        'subtracao' => 'Subtração',
+        'multiplicacao' => 'Multiplicação'
+    ];
+
+    // Obtém o nome da operação, se existir
+    $nomeOperacao = $nomesOperacoes[$operacao] ?? 'Desconhecida';
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -99,24 +113,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <div class="container">
-        <h1>Resultado de Operações envolvendo Matrizes</h1>
+        <h1>Resultado da Operação: <?php echo $nomeOperacao; ?></h1>
         <div class="detalhamento">
-            <h2>Explicação:</h2>
+            <h2>Cálculo:</h2>
             <pre><?php echo $explicacao; ?></pre>
         </div>
         <div class="resultado">
-            <div class="detalhamento">
-                <h2>Matriz Resultado:</h2>
-                <table border="1">
-                    <?php foreach ($resultado as $linha) { ?>
-                        <tr>
-                            <?php foreach ($linha as $valor) { ?>
-                                <td><?php echo $valor; ?></td>
-                            <?php } ?>
-                        </tr>
-                    <?php } ?>
-                </table>
-            </div>
+            <h3>Resposta:</h3>
+            <table border="1">
+                <?php foreach ($resultado as $linha) { ?>
+                    <tr>
+                        <?php foreach ($linha as $valor) { ?>
+                            <td><?php echo $valor; ?></td>
+                        <?php } ?>
+                    </tr>
+                <?php } ?>
+            </table>
         </div>
         <div class="resultado">
             <a href="../index.php">Voltar à página inicial</a>

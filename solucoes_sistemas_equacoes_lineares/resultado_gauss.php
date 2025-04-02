@@ -26,6 +26,7 @@ function resolverGauss($matriz, $resultados)
     $passos = [];
 
     for ($i = 0; $i < $n; $i++) {
+        // Pivotamento parcial para evitar erros numéricos
         $max = $i;
         for ($j = $i + 1; $j < $n; $j++) {
             if (abs($matriz[$j][$i]) > abs($matriz[$max][$i])) {
@@ -36,14 +37,13 @@ function resolverGauss($matriz, $resultados)
             throw new Exception("O sistema não tem solução única ou é indeterminado.");
         }
 
-        $temp = $matriz[$i];
-        $matriz[$i] = $matriz[$max];
-        $matriz[$max] = $temp;
+        // Troca de linhas
+        list($matriz[$i], $matriz[$max]) = [$matriz[$max], $matriz[$i]];
+        list($resultados[$i], $resultados[$max]) = [$resultados[$max], $resultados[$i]];
 
-        $tempResult = $resultados[$i];
-        $resultados[$i] = $resultados[$max];
-        $resultados[$max] = $tempResult;
+        $passos[] = "Matriz após troca de linhas ($i e $max): " . json_encode($matriz);
 
+        // Eliminação
         for ($j = $i + 1; $j < $n; $j++) {
             $fator = $matriz[$j][$i] / $matriz[$i][$i];
             for ($k = $i; $k < $n; $k++) {
@@ -54,11 +54,13 @@ function resolverGauss($matriz, $resultados)
         }
     }
 
+    // Substituição retroativa
     for ($i = $n - 1; $i >= 0; $i--) {
-        $x[$i] = $resultados[$i] / $matriz[$i][$i];
-        for ($j = $i - 1; $j >= 0; $j--) {
-            $resultados[$j] -= $matriz[$j][$i] * $x[$i];
+        $soma = 0;
+        for ($j = $i + 1; $j < $n; $j++) {
+            $soma += $matriz[$i][$j] * $x[$j];
         }
+        $x[$i] = ($resultados[$i] - $soma) / $matriz[$i][$i];
         $passos[] = "Substituindo x$i: " . json_encode($x);
     }
 
@@ -87,31 +89,36 @@ try {
 
 <head>
     <meta charset="UTF-8">
-    <title>Resultado - Método de Gauss</title>
+    <title>Solução do Método de Gauss</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Resultado do Sistema de Equações</h1>
+        <h1>Solução do Método de Gauss</h1>
         <div class="detalhamento">
             <?php if (isset($erro)): ?>
-                <p style="color: red;">Erro: <?php echo $erro; ?></p>
+                <strong>
+                    <p><?php echo $erro; ?></p>
+                </strong>
+                <a href="/solucoes_sistemas_equacoes_lineares/metodo_gauss.php"> <button type="button">Voltar à calculadora</button></a>
             <?php else: ?>
                 <h2>Passo a Passo:</h2>
                 <ul>
                     <?php foreach ($passos as $passo): ?>
-                        <li><?php echo $passo; ?></li>
+                        <li><?php echo htmlspecialchars($passo); ?></li>
                     <?php endforeach; ?>
                 </ul>
         </div>
         <div class="resultado">
-            <h2>Solução Final:</h2>
+            <h2>Resposta:</h2>
             <strong>
                 <p>X = [<?php echo implode(', ', $resposta); ?>]</p>
             </strong>
         <?php endif; ?>
-        <a href="../index.php">Voltar à página inicial</a>
+        <div class="resultado">
+            <a href="../index.php">Voltar à página inicial</a>
+        </div>
         </div>
     </div>
 </body>
