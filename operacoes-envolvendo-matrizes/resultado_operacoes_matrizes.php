@@ -19,10 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Verifica compatibilidade das matrizes
-    if (($operacao == 'adicao' || $operacao == 'subtracao') && $sizeA !== $sizeB) {
-        die("<script>alert('Erro: As matrizes devem ter o mesmo tamanho.'); window.history.back();</script>");
+    if (($operacao == 'adicao' || $operacao == 'subtracao') &&
+        (count($matrizA) !== count($matrizB) || count($matrizA[0]) !== count($matrizB[0]))
+    ) {
+        die("<script>alert('Erro: As matrizes devem ter o mesmo número de linhas e colunas.'); window.history.back();</script>");
     }
-    
+
     if ($operacao == 'multiplicacao' && $sizeA !== $sizeB) {
         die("<script>alert('Erro: O número de colunas da primeira matriz deve ser igual ao número de linhas da segunda matriz.'); window.history.back();</script>");
     }
@@ -32,35 +34,52 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $explicacao = "";
     switch ($operacao) {
         case 'adicao':
+            $explicacao .= "<table border='1' style='border-collapse: collapse; text-align: center;'>\n";
             for ($i = 0; $i < $sizeA; $i++) {
+                $explicacao .= "<tr>\n";
                 for ($j = 0; $j < $sizeA; $j++) {
                     $resultado[$i][$j] = $matrizA[$i][$j] + $matrizB[$i][$j];
-                    $explicacao .= "({$matrizA[$i][$j]} + {$matrizB[$i][$j]}) ";
+                    $explicacao .= "<td>{$matrizA[$i][$j]} + {$matrizB[$i][$j]} = {$resultado[$i][$j]}</td>\n";
                 }
-                $explicacao .= "\n";
+                $explicacao .= "</tr>\n";
             }
+            $explicacao .= "</table>\n";
             break;
+
         case 'subtracao':
+            $explicacao .= "<table border='1' style='border-collapse: collapse; text-align: center;'>\n";
             for ($i = 0; $i < $sizeA; $i++) {
+                $explicacao .= "<tr>\n";
                 for ($j = 0; $j < $sizeA; $j++) {
                     $resultado[$i][$j] = $matrizA[$i][$j] - $matrizB[$i][$j];
-                    $explicacao .= "({$matrizA[$i][$j]} - {$matrizB[$i][$j]}) ";
+                    $explicacao .= "<td>{$matrizA[$i][$j]} - {$matrizB[$i][$j]} = {$resultado[$i][$j]}</td>\n";
                 }
-                $explicacao .= "\n";
+                $explicacao .= "</tr>\n";
             }
+            $explicacao .= "</table>\n";
             break;
+
         case 'multiplicacao':
+            $explicacao .= "<table border='1' style='border-collapse: collapse; text-align: center;'>\n";
             for ($i = 0; $i < $sizeA; $i++) {
+                $explicacao .= "<tr>\n";
                 for ($j = 0; $j < $sizeA; $j++) {
                     $resultado[$i][$j] = 0;
+                    $detalhesOperacao = "";
                     for ($k = 0; $k < $sizeA; $k++) {
-                        $resultado[$i][$j] += $matrizA[$i][$k] * $matrizB[$k][$j];
-                        $explicacao .= "({$matrizA[$i][$k]} * {$matrizB[$k][$j]}) ";
+                        $produto = $matrizA[$i][$k] * $matrizB[$k][$j];
+                        $resultado[$i][$j] += $produto;
+                        $detalhesOperacao .= "{$matrizA[$i][$k]} * {$matrizB[$k][$j]} ";
+                        if ($k < $sizeA - 1) {
+                            $detalhesOperacao .= "+ ";
+                        }
                     }
-                    $explicacao .= "= {$resultado[$i][$j]} ";
+                    $detalhesOperacao .= "= {$resultado[$i][$j]}";
+                    $explicacao .= "<td>$detalhesOperacao</td>\n";
                 }
-                $explicacao .= "\n";
+                $explicacao .= "</tr>\n";
             }
+            $explicacao .= "</table>\n";
             break;
         default:
             die("<script>alert('Erro: Operação inválida.'); window.history.back();</script>");
@@ -81,18 +100,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container">
         <h1>Resultado de Operações envolvendo Matrizes</h1>
-        <h2>Matriz Resultado:</h2>
-        <table border="1">
-            <?php foreach ($resultado as $linha) { ?>
-                <tr>
-                    <?php foreach ($linha as $valor) { ?>
-                        <td><?php echo $valor; ?></td>
+        <div class="detalhamento">
+            <h2>Explicação:</h2>
+            <pre><?php echo $explicacao; ?></pre>
+        </div>
+        <div class="resultado">
+            <div class="detalhamento">
+                <h2>Matriz Resultado:</h2>
+                <table border="1">
+                    <?php foreach ($resultado as $linha) { ?>
+                        <tr>
+                            <?php foreach ($linha as $valor) { ?>
+                                <td><?php echo $valor; ?></td>
+                            <?php } ?>
+                        </tr>
                     <?php } ?>
-                </tr>
-            <?php } ?>
-        </table>
-        <h2>Explicação:</h2>
-        <pre><?php echo $explicacao; ?></pre>
+                </table>
+            </div>
+        </div>
         <div class="resultado">
             <a href="../index.php">Voltar à página inicial</a>
         </div>
