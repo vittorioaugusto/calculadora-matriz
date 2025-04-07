@@ -17,7 +17,6 @@ function resolverSistema($matriz, $resultados)
 
     for ($i = 0; $i < $n; $i++) {
         $matrizModificada = $matriz;
-
         for ($j = 0; $j < $n; $j++) {
             $matrizModificada[$j][$i] = $resultados[$j];
         }
@@ -79,53 +78,74 @@ $solucaoDetalhada = resolverSistema($matriz, $resultados);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
     <title>Solução do Método de Cramer</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Solução do Método de Cramer</h1>
-        <div class="detalhamento">
+
+    <header>
+        <div class="container">
+            <h1>Solução do Método de Cramer</h1>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="container">
+
             <?php if (isset($solucaoDetalhada['erro']) && $solucaoDetalhada['erro']): ?>
-                <strong>
-                    <p><?php echo $solucaoDetalhada['solucoes']; ?></p>
-                </strong>
-                <a href="/solucoes_sistemas_equacoes_lineares/metodo_cramer.php"><button type="button">Voltar à calculadora</button></a>
-        </div>
-    <?php else: ?>
-        <h3>Passo a Passo da Resolução:</h3>
-        <?php foreach ($solucaoDetalhada['passos'] as $index => $passo): ?>
-            <div class="detalhamento">
-                <h4>Passo <?php echo $index + 1; ?>: Resolver para x<?php echo $index + 1; ?></h4>
-                <p><strong>Matriz Modificada:</strong></p>
-                <table>
-                    <?php foreach ($passo['matrizModificada'] as $linha): ?>
-                        <tr>
-                            <?php foreach ($linha as $valor): ?>
-                                <td><?php echo number_format($valor, 2); ?></td>
+                <div class="detalhamento">
+                    <p><strong><?php echo $solucaoDetalhada['solucoes']; ?></strong></p>
+                    <div class="botoes-box">
+                        <a href="/solucoes_sistemas_equacoes_lineares/metodo_cramer.php" class="btn voltar">Voltar à calculadora</a>
+                    </div>
+                </div>
+            <?php else: ?>
+                <h3>Passo a Passo da Resolução:</h3>
+
+                <?php foreach ($solucaoDetalhada['passos'] as $index => $passo): ?>
+                    <div class="detalhamento">
+                        <h4>Passo <?php echo $index + 1; ?>: Resolver para x<?php echo $index + 1; ?></h4>
+                        <p><strong>Matriz Modificada:</strong></p>
+                        <table class="tabela-matriz">
+                            <?php foreach ($passo['matrizModificada'] as $linha): ?>
+                                <tr>
+                                    <?php foreach ($linha as $valor): ?>
+                                        <td><?php echo number_format($valor, 2); ?></td>
+                                    <?php endforeach; ?>
+                                </tr>
                             <?php endforeach; ?>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
-                <p><strong>Explicação:</strong> <?php echo $passo['explicacao']; ?></p>
-                <p><strong>Determinante da Matriz Modificada:</strong> <?php echo number_format($passo['determinanteMatrizModificada'], 4); ?></p>
-                <p><strong>Resultado para x<?php echo $index + 1; ?>:</strong> <?php echo number_format($passo['solucao'], 4); ?></p>
-            </div>
-        <?php endforeach; ?>
-        <div class="resultado">
-            <h3>Resposta:</h3>
-            <ul>
-                <?php foreach ($solucaoDetalhada['solucoes'] as $index => $valor): ?>
-                    <li><strong>x<?php echo $index + 1; ?> = </strong><?php echo number_format($valor, 4); ?></li>
+                        </table>
+                        <p><strong>Explicação:</strong> <?php echo $passo['explicacao']; ?></p>
+                        <p><strong>Determinante da Matriz Modificada:</strong> <?php echo number_format($passo['determinanteMatrizModificada'], 4); ?></p>
+                        <p><strong>Resultado para x<?php echo $index + 1; ?>:</strong> <?php echo number_format($passo['solucao'], 4); ?></p>
+                    </div>
                 <?php endforeach; ?>
-            </ul>
-        <?php endif; ?>
-        <div class="resultado">
-            <a href="../index.php">Voltar à página inicial</a>
+
+                <div class="resultado">
+                    <h3>Resposta:</h3>
+                    <ul>
+                        <?php foreach ($solucaoDetalhada['solucoes'] as $index => $valor): ?>
+                            <li><strong>x<?php echo $index + 1; ?> = </strong><?php echo number_format($valor, 4); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+
+                <div class="botoes-box">
+                    <a href="/solucoes_sistemas_equacoes_lineares/metodo_cramer.php" class="btn voltar">Voltar à calculadora</a>
+                    <a href="../index.php" class="btn">Página Inicial</a>
+                </div>
+            <?php endif; ?>
+
         </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <?php echo date("Y"); ?> Calculadora de Matrizes</p>
         </div>
-    </div>
+    </footer>
+
 </body>
 
 </html>

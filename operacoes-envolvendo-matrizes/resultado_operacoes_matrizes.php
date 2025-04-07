@@ -107,33 +107,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
     <title>Resultado da Operação</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Resultado da Operação: <?php echo $nomeOperacao; ?></h1>
-        <div class="detalhamento">
-            <h2>Cálculo:</h2>
-            <pre><?php echo $explicacao; ?></pre>
+    <header>
+        <div class="container">
+            <h1>Resultado da Operação: <?php echo $nomeOperacao; ?></h1>
         </div>
-        <div class="resultado">
-            <h3>Resposta:</h3>
-            <table border="1">
-                <?php foreach ($resultado as $linha) { ?>
-                    <tr>
-                        <?php foreach ($linha as $valor) { ?>
-                            <td><?php echo $valor; ?></td>
+    </header>
+
+    <section class="content">
+        <div class="container">
+            <div class="detalhamento">
+                <h2>Detalhamento do Cálculo</h2>
+                <div class="explicacao">
+                    <?php echo $explicacao; ?>
+                </div>
+            </div>
+
+            <div class="resultado">
+                <h2>Resultado</h2>
+                <div class="matriz-resultado">
+                    <table class="matriz-table">
+                        <?php foreach ($resultado as $linha) { ?>
+                            <tr>
+                                <?php foreach ($linha as $valor) { ?>
+                                    <td><?php echo $valor; ?></td>
+                                <?php } ?>
+                            </tr>
                         <?php } ?>
-                    </tr>
-                <?php } ?>
-            </table>
+                    </table>
+                </div>
+            </div>
+
+            <div class="botoes-box">
+                <a href="/operacoes-envolvendo-matrizes/operacoes_matrizes.php" class="btn voltar">Voltar à calculadora</a>
+                <a href="../index.php" class="btn">Página Inicial</a>
+            </div>
         </div>
-        <div class="resultado">
-            <a href="../index.php">Voltar à página inicial</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <?php echo date("Y"); ?> Calculadora de Matrizes</p>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>

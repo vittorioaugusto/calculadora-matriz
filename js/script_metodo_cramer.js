@@ -3,15 +3,22 @@ function atualizarMatriz() {
     let matrizContainer = document.getElementById('matriz-container');
     matrizContainer.innerHTML = '';
 
+    let html = '<div class="matriz-identificada">';
+
     for (let i = 0; i < size; i++) {
-        let row = '';
+        html += '<div class="linha-matriz">';
         for (let j = 0; j < size; j++) {
-            row += `<input type="text" name="a${i + 1}${j + 1}" value=""> x${j + 1}`;
-            if (j < size - 1) row += ' + ';
+            html += `<input type="text" class="input-matriz" name="a${i + 1}${j + 1}" value="">`;
+            html += `<span class="variavel">x${j + 1}</span>`;
+            if (j < size - 1) html += '<span class="sinal"> + </span>';
         }
-        row += ` = <input type="text" name="r${i + 1}" value=""><br>`;
-        matrizContainer.innerHTML += row;
+        html += '<span class="sinal"> = </span>';
+        html += `<input type="text" class="input-resultado" name="r${i + 1}" value="">`;
+        html += '</div>';
     }
+
+    html += '</div>';
+    matrizContainer.innerHTML = html;
 }
 
 function alterarMatriz(acao) {
@@ -28,4 +35,5 @@ function limparMatriz() {
     inputs.forEach(input => input.value = '');
 }
 
-atualizarMatriz();
+// Atualiza matriz na inicialização
+document.addEventListener('DOMContentLoaded', atualizarMatriz);

@@ -1,5 +1,5 @@
 <?php
-$title = "Matriz Calculator";
+$title = "MatriXYZ";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -12,14 +12,29 @@ $title = "Matriz Calculator";
 </head>
 
 <body>
-    <div class="container">
-        <h1>Bem-vindo ao <?php echo $title; ?></h1>
-        <a href="operacoes-envolvendo-matrizes/operacoes_matrizes.php" class="btn">Operações envolvendo matrizes</a>
-        <a href="solucoes_sistemas_equacoes_lineares/solucoes_sistemas_equacoes_lineares.php" class="btn">Soluções de Sistemas de Equações Lineares</a>
-        <a href="" class="btn">Cofatores, Determinantes e Matriz Inversa</a>
-        <a href="#" class="btn">EM BREVE</a>
-        <a href="#" class="btn">EM BREVE</a>
-    </div>
+    <header>
+        <div class="container">
+            <h1>Bem-vindo ao <?php echo $title; ?></h1>
+            <p></p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <a href="operacoes-envolvendo-matrizes/operacoes_matrizes.php" class="btn">Operações envolvendo matrizes</a>
+            <a href="solucoes_sistemas_equacoes_lineares/solucoes_sistemas_equacoes_lineares.php" class="btn">Soluções de Sistemas de Equações Lineares</a>
+            <a href="" class="btn">Cofatores, Determinantes e Matriz Inversa</a>
+            <a href="#" class="btn">EM BREVE</a>
+            <a href="#" class="btn">EM BREVE</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <?php echo date("Y"); ?> Calculadora de Matrizes</p>
+        </div>
+    </footer>
+
 </body>
 
 </html>

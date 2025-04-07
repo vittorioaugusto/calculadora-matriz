@@ -1,238 +1,343 @@
-/* Reset geral */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-/* Body */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #fff;
-    padding: 10px;
+    background-color: #f4f4f4;
+    color: #333;
     text-align: center;
 }
 
-/* Container principal */
 .container {
-    background: rgba(255, 255, 255, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.container a {
-    text-decoration: none;
-    display: inline-block;
-}
-
-.container a:hover {
-    text-decoration: underline;
-}
-
-/* Layout e estrutura */
-.matrizes {
-    display: flex;
-    gap: 50px;
-    margin-top: 20px;
-}
-
-.matrizes a {
+/* Cabeçalho */
+header {
+    background-color: #0077b6;
     color: #fff;
-    text-decoration: none;
+    padding: 20px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.matrizes a:hover {
-    text-decoration: underline;
-}
-
-h1,
-h4 {
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-h1 {
+header h1 {
     font-size: 28px;
-    color: #fff;
 }
 
-h4 {
-    font-size: 20px;
-    color: #2c3e50;
+/* Seção Hero */
+.hero {
+    background-color: #fff;
+    padding: 40px 0;
+    margin: 20px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Botões */
-button,
-.btn {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    border-radius: 6px;
+.hero .btn {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px;
+    background-color: #0096c7;
+    color: white;
+    text-decoration: none;
     font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
 }
 
-button:hover,
-.btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
+.hero .btn:hover {
+    background-color: #023e8a;
+}
+
+/* Botões "EM BREVE" */
+.hero .btn:nth-child(4),
+.hero .btn:nth-child(5) {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+}
+
+/* Rodapé */
+footer {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Select */
 select {
-    width: 100%;
+    max-width: 300px;
     padding: 10px;
+    font-size: 16px;
+    border: 2px solid #0077b6;
     border-radius: 5px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-}
-
-select option {
-    background: #1e3c72;
-    color: #fff;
-}
-
-/* Detalhamento */
-.detalhamento {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-.detalhamento h3 {
-    font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.detalhamento ul {
-    list-style: none;
-}
-
-.detalhamento li {
-    font-size: 18px;
-    color: #ffffff;
-    margin: 10px 0;
-}
-
-/* Código formatado */
-pre {
-    background: #ecf0f1;
-    color: #2c3e50;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 16px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-/* Tabelas */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th,
-td {
-    padding: 10px;
-    text-align: center;
-    font-size: 18px;
-    border: 1px solid #ddd;
-}
-
-th {
-    background: #f39c12;
-    color: white;
-}
-
-td {
-    background: #ecf0f1;
+    background-color: #f8f9fa;
     color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border 0.3s, background 0.3s;
 }
 
-/* Resultados */
-.resultado {
-    margin-top: 10px;
+select:hover,
+select:focus {
+    border-color: #023e8a;
+    background-color: #e3f2fd;
 }
 
-.resultado a {
-    color: #fff;
+/* Botões gerais */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #0077b6;
+    color: white;
     text-decoration: none;
     font-size: 18px;
-    margin-top: 30px;
-    display: inline-block;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+    cursor: pointer;
+    border: none;
 }
 
-.resultado a:hover {
-    text-decoration: underline;
+.btn:hover {
+    background-color: #023e8a;
 }
 
-.resultado p {
-    padding: 10px;
-    font-size: 20px;
+.btn.limpar {
+    background-color: #f59e0b;
 }
 
-/* Inputs */
-input {
-    width: 50px;
-    padding: 8px;
-    text-align: center;
-    background: #444;
-    border: 1px solid #777;
-    color: white;
-    margin: 5px;
+.btn.limpar:hover {
+    background-color: #d97706;
 }
 
-/* Botões agrupados */
+.btn.voltar {
+    background-color: #6b7280;
+}
+
+.btn.voltar:hover {
+    background-color: #4b5563;
+}
+
+/* Botão específico de calcular */
+button.btn {
+    font-weight: bold;
+    padding: 12px 25px;
+    transform: scale(1);
+    transition: background 0.3s, transform 0.2s;
+}
+
+button.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Box de botões */
 .botoes-box {
+    margin-top: 20px;
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin: 15px 0;
+    flex-wrap: wrap;
 }
 
 .botoes-box button {
-    padding: 10px 15px;
-    font-size: 18px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #0096c7;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
+.botoes-box button:hover {
+    background-color: #023e8a;
+}
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
+/* Matrizes */
+.matrizes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
 
-    h1 {
-        font-size: 24px;
-    }
+.matriz-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    min-height: 200px;
+}
 
-    .detalhamento h3 {
-        font-size: 20px;
-    }
+.matriz-box h2 {
+    margin-bottom: 15px;
+}
 
-    .detalhamento li,
-    .resultado a {
-        font-size: 16px;
-    }
+.matriz-box div,
+.matriz-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#matriz-container-A,
+#matriz-container-B {
+    display: grid;
+    grid-template-columns: repeat(3, 40px);
+    grid-gap: 5px;
+    justify-content: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    min-height: 100px;
+}
+
+#matriz-container-A input,
+#matriz-container-B input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-matriz,
+.input-resultado {
+    width: 60px;
+    padding: 8px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.input-resultado {
+    background-color: #fff7e6;
+}
+
+.variavel,
+.sinal {
+    font-weight: bold;
+}
+
+.variavel {
+    margin-right: 5px;
+}
+
+.sinal {
+    margin: 0 8px;
+}
+
+.matriz-wrapper {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.matriz-identificada {
+    display: inline-block;
+    background-color: #f0f4ff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.matriz-identificada h2 {
+    margin-bottom: 15px;
+    color: #2563eb;
+}
+
+.linha-matriz {
+    margin-bottom: 15px;
+}
+
+/* Tabelas */
+.matriz-resultado {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.matriz-table,
+table.tabela-matriz {
+    width: auto;
+    border-collapse: collapse;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.matriz-table td,
+table.tabela-matriz td {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    min-width: 40px;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+/* Explicação passo a passo */
+.explicacao table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.explicacao td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 0.9rem;
+}
+
+/* Seções e subtítulos */
+section.content h3 {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+section.content h4 {
+    margin-top: 1.2rem;
+    color: #34495e;
+    font-size: 1.2rem;
+}
+
+/* Resultados e Detalhamento */
+.detalhamento {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-left: 5px solid #3498db;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.resultado {
+    background-color: #eafaf1;
+    border: 1px solid #27ae60;
+    border-left: 5px solid #27ae60;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.resultado ul {
+    padding-left: 1.2rem;
+}
+
+.resultado li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
 }

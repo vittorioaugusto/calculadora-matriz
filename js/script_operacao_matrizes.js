@@ -1,21 +1,22 @@
 function atualizarMatriz(matriz) {
     let size = parseInt(document.getElementById('size' + matriz).value);
     let matrizContainer = document.getElementById('matriz-container-' + matriz);
+    
     matrizContainer.innerHTML = '';
+    matrizContainer.style.display = 'grid';
+    matrizContainer.style.gridTemplateColumns = `repeat(${size}, 40px)`;
 
     for (let i = 0; i < size; i++) {
-        let row = document.createElement('div');
-        row.classList.add('matriz-row');
         for (let j = 0; j < size; j++) {
             let input = document.createElement('input');
             input.type = 'text';
             input.name = `matriz${matriz}[${i}][${j}]`;
             input.value = '';
-            row.appendChild(input);
+            matrizContainer.appendChild(input);
         }
-        matrizContainer.appendChild(row);
     }
 }
+
 
 function alterarMatriz(matriz, acao) {
     let sizeInput = document.getElementById('size' + matriz);
