@@ -3,25 +3,22 @@ function atualizarMatriz() {
     let matrizContainer = document.getElementById('matriz-container');
     matrizContainer.innerHTML = '';
 
+    let html = '<div class="matriz-identificada">';
+
     for (let i = 0; i < size; i++) {
-        let row = document.createElement('div');
+        html += '<div class="linha-matriz">';
         for (let j = 0; j < size; j++) {
-            let input = document.createElement('input');
-            input.type = 'text';
-            input.name = `a${i + 1}${j + 1}`;
-            input.value = document.querySelector(`[name="a${i + 1}${j + 1}"]`)?.value || '';
-            row.appendChild(input);
-            row.innerHTML += ` x${j + 1} `;
-            if (j < size - 1) row.innerHTML += ' + ';
+            html += `<input type="text" class="input-matriz" name="a${i + 1}${j + 1}" value="">`;
+            html += `<span class="variavel">x${j + 1}</span>`;
+            if (j < size - 1) html += '<span class="sinal"> + </span>';
         }
-        let resultInput = document.createElement('input');
-        resultInput.type = 'text';
-        resultInput.name = `r${i + 1}`;
-        resultInput.value = document.querySelector(`[name="r${i + 1}"]`)?.value || '';
-        row.innerHTML += ` = `;
-        row.appendChild(resultInput);
-        matrizContainer.appendChild(row);
+        html += '<span class="sinal"> = </span>';
+        html += `<input type="text" class="input-resultado" name="r${i + 1}" value="">`;
+        html += '</div>';
     }
+
+    html += '</div>';
+    matrizContainer.innerHTML = html;
 }
 
 function alterarMatriz(acao) {
@@ -38,4 +35,5 @@ function limparMatriz() {
     inputs.forEach(input => input.value = '');
 }
 
-atualizarMatriz();
+// Atualiza matriz na inicialização
+document.addEventListener('DOMContentLoaded', atualizarMatriz);

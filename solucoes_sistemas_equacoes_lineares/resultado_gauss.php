@@ -84,43 +84,70 @@ try {
     $erro = $e->getMessage();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solução do Método de Gauss</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Solução do Método de Gauss</h1>
-        <div class="detalhamento">
+
+    <header>
+        <div class="container">
+            <h1>Solução do Método de Gauss</h1>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="container">
+
             <?php if (isset($erro)): ?>
-                <strong>
-                    <p><?php echo $erro; ?></p>
-                </strong>
-                <a href="/solucoes_sistemas_equacoes_lineares/metodo_gauss.php"> <button type="button">Voltar à calculadora</button></a>
+                <div class="detalhamento">
+                    <p><strong><?php echo $erro; ?></strong></p>
+                    <div class="botoes-box">
+                        <a href="/solucoes_sistemas_equacoes_lineares/metodo_gauss.php" class="btn voltar">Voltar à calculadora</a>
+                    </div>
+                </div>
             <?php else: ?>
-                <h2>Passo a Passo:</h2>
-                <ul>
-                    <?php foreach ($passos as $passo): ?>
-                        <li><?php echo htmlspecialchars($passo); ?></li>
-                    <?php endforeach; ?>
-                </ul>
+                <h3>Passo a Passo da Resolução:</h3>
+
+                <div class="detalhamento">
+                    <ul>
+                        <?php foreach ($passos as $index => $passo): ?>
+                            <li><strong>Passo <?php echo $index + 1; ?>:</strong> <?php echo htmlspecialchars($passo); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+
+                <div class="resultado">
+                    <h3>Resposta:</h3>
+                    <ul>
+                        <?php foreach ($resposta as $index => $valor): ?>
+                            <li><strong>x<?php echo $index + 1; ?> = </strong><?php echo $valor; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+
+                <div class="botoes-box">
+                    <a href="/solucoes_sistemas_equacoes_lineares/metodo_gauss.php" class="btn voltar">Voltar à calculadora</a>
+                    <a href="../index.php" class="btn">Página Inicial</a>
+                </div>
+            <?php endif; ?>
+
         </div>
-        <div class="resultado">
-            <h2>Resposta:</h2>
-            <strong>
-                <p>X = [<?php echo implode(', ', $resposta); ?>]</p>
-            </strong>
-        <?php endif; ?>
-        <div class="resultado">
-            <a href="../index.php">Voltar à página inicial</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <?php echo date("Y"); ?> Calculadora de Matrizes</p>
         </div>
-        </div>
-    </div>
+    </footer>
+
 </body>
 
 </html>
