@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="botoes-box">
-                <a href="/operacoes-envolvendo-matrizes/operacoes_matrizes.php" class="btn voltar">Voltar à calculadora</a>
+                <a href="/operacoes-matrizes/operacoes_matrizes.php" class="btn voltar">Voltar à calculadora</a>
                 <a href="../index.php" class="btn">Página Inicial</a>
             </div>
         </div>
