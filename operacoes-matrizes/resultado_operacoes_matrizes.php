@@ -22,11 +22,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (($operacao == 'adicao' || $operacao == 'subtracao') &&
         (count($matrizA) !== count($matrizB) || count($matrizA[0]) !== count($matrizB[0]))
     ) {
-        die("<script>alert('Erro: As matrizes devem ter o mesmo número de linhas e colunas.'); window.history.back();</script>");
+        echo "
+        <!DOCTYPE html>
+        <html lang='pt-BR'>
+        <head>
+            <meta charset='UTF-8'>
+            <title>Erro</title>
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        </head>
+        <body>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'As matrizes devem ter o mesmo número de linhas e colunas.'
+                }).then(() => {
+                    window.history.back();
+                });
+            </script>
+        </body>
+        </html>";
+        exit;
     }
 
     if ($operacao == 'multiplicacao' && $sizeA !== $sizeB) {
-        die("<script>alert('Erro: O número de colunas da primeira matriz deve ser igual ao número de linhas da segunda matriz.'); window.history.back();</script>");
+        echo "
+        <!DOCTYPE html>
+        <html lang='pt-BR'>
+        <head>
+            <meta charset='UTF-8'>
+            <title>Erro</title>
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        </head>
+        <body>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'O número de colunas da primeira matriz deve ser igual ao número de linhas da segunda matriz.'
+                }).then(() => {
+                    window.history.back();
+                });
+            </script>
+        </body>
+        </html>";
+        exit;
     }
 
     // Realizar operação
@@ -84,8 +124,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             $explicacao .= "</table>\n";
             break;
+
         default:
-            die("<script>alert('Erro: Operação inválida.'); window.history.back();</script>");
+            echo "
+            <!DOCTYPE html>
+            <html lang='pt-BR'>
+            <head>
+                <meta charset='UTF-8'>
+                <title>Erro</title>
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            </head>
+            <body>
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro',
+                        text: 'Operação inválida.'
+                    }).then(() => {
+                        window.history.back();
+                    });
+                </script>
+            </body>
+            </html>";
+            exit;
     }
 
     // Mapeia a operação para um nome legível
@@ -95,10 +156,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'multiplicacao' => 'Multiplicação'
     ];
 
-    // Obtém o nome da operação, se existir
     $nomeOperacao = $nomesOperacoes[$operacao] ?? 'Desconhecida';
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -109,6 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado da Operação</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>

@@ -17,7 +17,6 @@ function atualizarMatriz(matriz) {
     }
 }
 
-
 function alterarMatriz(matriz, acao) {
     let sizeInput = document.getElementById('size' + matriz);
     let size = parseInt(sizeInput.value);
@@ -44,7 +43,11 @@ function validarMatrizes() {
         if (valor !== '') {
             preenchidoA = true;
             if (isNaN(valor)) {
-                alert('A Matriz A contém valores inválidos. Digite apenas números.');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'A Matriz A contém valores inválidos. Digite apenas números.'
+                });
                 return false;
             }
         }
@@ -55,42 +58,59 @@ function validarMatrizes() {
         if (valor !== '') {
             preenchidoB = true;
             if (isNaN(valor)) {
-                alert('A Matriz B contém valores inválidos. Digite apenas números.');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'A Matriz B contém valores inválidos. Digite apenas números.'
+                });
                 return false;
             }
         }
     }
 
     if (!preenchidoA || !preenchidoB) {
-        alert('Por favor, preencha pelo menos um dado na Matriz A e na Matriz B.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Atenção',
+            text: 'Por favor, preencha pelo menos um dado na Matriz A e na Matriz B.'
+        });
         return false;
     }
 
     return true;
 }
 
- function validarMatrizEscalar() {
-        const inputs = document.querySelectorAll('#matriz-container-A input');
-        let preenchido = false;
+function validarMatrizEscalar() {
+    const inputs = document.querySelectorAll('#matriz-container-A input');
+    let preenchido = false;
 
-        for (let input of inputs) {
-            const valor = input.value.trim();
-            if (valor !== '') {
-                preenchido = true;
-                if (isNaN(valor)) {
-                    alert('A matriz contém valores inválidos. Digite apenas números.');
-                    return false;
-                }
+    for (let input of inputs) {
+        const valor = input.value.trim();
+        if (valor !== '') {
+            preenchido = true;
+            if (isNaN(valor)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'A matriz contém valores inválidos. Digite apenas números.'
+                });
+                return false;
             }
         }
-
-        if (!preenchido) {
-            alert('Por favor, preencha pelo menos um valor na matriz.');
-            return false;
-        }
-
-        return true;
     }
 
+    if (!preenchido) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Atenção',
+            text: 'Por favor, preencha pelo menos um valor na matriz.'
+        });
+        return false;
+    }
+
+    return true;
+}
+
+// Inicialização
 atualizarMatriz('A');
 atualizarMatriz('B');
