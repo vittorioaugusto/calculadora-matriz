@@ -12,6 +12,7 @@ function atualizarMatriz(matriz) {
             input.type = 'text';
             input.name = `matriz${matriz}[${i}][${j}]`;
             input.value = '';
+            input.classList.add('matriz-celula'); // <-- Adiciona a classe CSS
             matrizContainer.appendChild(input);
         }
     }
@@ -111,6 +112,22 @@ function validarMatrizEscalar() {
     return true;
 }
 
+function verificarLayoutResponsivo() {
+    const sizeA = parseInt(document.getElementById('sizeA').value);
+    const sizeB = parseInt(document.getElementById('sizeB').value);
+    const wrapper = document.getElementById('matrizes-wrapper');
+
+    if (sizeA > 3 || sizeB > 3) {
+        wrapper.style.flexDirection = 'column';
+        wrapper.style.alignItems = 'center';
+    } else {
+        wrapper.style.flexDirection = 'row';
+        wrapper.style.alignItems = 'flex-start';
+    }
+}
+
+
 // Inicialização
 atualizarMatriz('A');
 atualizarMatriz('B');
+verificarLayoutResponsivo();

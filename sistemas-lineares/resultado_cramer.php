@@ -1,4 +1,6 @@
 <?php
+include_once '../header.php';
+
 function resolverSistema($matriz, $resultados)
 {
     $n = count($matriz);
@@ -72,32 +74,17 @@ for ($i = 0; $i < $size; $i++) {
 $solucaoDetalhada = resolverSistema($matriz, $resultados);
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
+<link rel="stylesheet" href="/css/style.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solução do Método de Cramer</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-
-    <header>
+    <section class="section">
         <div class="container">
-            <h1>Solução do Método de Cramer</h1>
-        </div>
-    </header>
-
-    <section class="content">
-        <div class="container">
+            <h1 class="titulo">Solução do Método de Cramer</h1>
 
             <?php if (isset($solucaoDetalhada['erro']) && $solucaoDetalhada['erro']): ?>
                 <div class="detalhamento">
                     <p><strong><?php echo $solucaoDetalhada['solucoes']; ?></strong></p>
                     <div class="botoes-box">
-                        <a href="/solucoes_sistemas_equacoes_lineares/metodo_cramer.php" class="btn voltar">Voltar à calculadora</a>
+                        <a href="../sistemas-lineares/metodo_cramer.php" class="btn voltar">Voltar à calculadora</a>
                     </div>
                 </div>
             <?php else: ?>
@@ -132,7 +119,7 @@ $solucaoDetalhada = resolverSistema($matriz, $resultados);
                 </div>
 
                 <div class="botoes-box">
-                    <a href="/solucoes_sistemas_equacoes_lineares/metodo_cramer.php" class="btn voltar">Voltar à calculadora</a>
+                    <a href="../sistemas-lineares/metodo_cramer.php" class="btn voltar">Voltar à calculadora</a>
                     <a href="../index.php" class="btn">Página Inicial</a>
                 </div>
             <?php endif; ?>
@@ -140,12 +127,6 @@ $solucaoDetalhada = resolverSistema($matriz, $resultados);
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; <?php echo date("Y"); ?> Calculadora de Matrizes</p>
-        </div>
-    </footer>
-
-</body>
-
-</html>
+<?php
+include_once '../footer.php';
+?>

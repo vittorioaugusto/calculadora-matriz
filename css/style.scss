@@ -1,0 +1,5 @@
+@use "bulma/sass/utilities" as mixins; /* Importa o módulo de utilities do Bulma SASS */
+
+.bulma-burger-mixin {
+  @include mixins.burger(2.5rem);
+}

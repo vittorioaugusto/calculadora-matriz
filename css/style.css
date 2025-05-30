@@ -1,431 +1,362 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+.has-navbar-fixed-top {
+    background-color: hsl(0, 0%, 96%);
+    color: hsl(0, 0%, 21%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: hsl(0, 0%, 21%);
+    /* Garante que os títulos também sejam escuros */
+}
+
+.matriz-wrapper h2 {
+    color: hsl(0, 0%, 21%);
+}
+
+/* Barra de navegação */
+.navbar {
+    background-color: white !important;
+    /* Define a cor de fundo da barra de navegação */
+}
+
+/* Ajustes para os itens do menu hambúrguer quando ativo (versão mobile) */
+.navbar-menu.is-active .navbar-item.button {
+    width: calc(100% - 20px);
+    /* Ocupa quase toda a largura, com margem */
+    margin: 5px 10px;
+    /* Espaçamento entre os botões */
+    text-align: center;
+    /* Centraliza o texto */
+    display: block;
+    /* Garantir que cada botão fique em uma linha */
+}
+
+/* Ajuste a cor do texto do hero para melhor contraste no fundo claro */
+.hero-body .title,
+.hero-body .subtitle {
+    color: hsl(0, 0%, 21%);
+    /* Cor mais escura */
+}
+
+/* Espaçamento para os botões na navbar de desktop */
+.navbar-item.button {
+    margin-right: 8px;
+    /* Espaço entre os botões na horizontal */
+}
+
+button,
+.button,
+.btn {
+    color: white;
+}
+
+/* Cores dos botões do Menu */
+/* Início */
+a.navbar-item.button.is-link {
+    background-color: var(--bulma-link) !important;
+}
+
+a.navbar-item.button.is-primary {
+    background-color: var(--bulma-primary) !important;
+    color: white;
+}
+
+a.navbar-item.button.is-info {
+    background-color: var(--bulma-info) !important;
+    color: white;
+}
+
+a.navbar-item.button.is-success {
+    background-color: var(--bulma-success) !important;
+}
+
+a.navbar-item.button.is-warning {
+    background-color: var(--bulma-warning) !important;
+}
+
+a.navbar-item.button.is-danger {
+    background-color: var(--bulma-danger) !important;
+}
+
+/* Fim - Cores dos botões */
+
+/* Altura total para HTML e Body para o Sticky Footer */
+html {
+    height: 100%;
+    /* Garante que o html ocupe toda a altura da viewport */
 }
 
 body {
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
+    display: flex;
+    /* Transforma o body em um contêiner flex */
+    flex-direction: column;
+    /* Organiza os itens em coluna */
+    min-height: 100vh;
+    /* Garante que o corpo tenha no mínimo 100% da altura da viewport */
+}
+
+.section {
+    flex-grow: 1;
+    /* A seção do conteúdo deve ocupar todo o espaço disponível */
+    padding-bottom: 2rem;
+    /* Margem para o conteúdo não ficar colado no footer */
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    flex-grow: 1;
+    /* Se o seu conteúdo principal estiver dentro de um .container, este também precisa crescer */
 }
 
-/* Cabeçalho */
-header {
-    background-color: #0077b6;
-    color: #fff;
+/* Regras para o footer */
+.footer {
+    background-color: hsl(0, 0%, 96%);
+    color: hsl(0, 0%, 21%);
     padding: 20px 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    font-size: 28px;
-}
-
-/* Seção Hero */
-.hero {
-    background-color: #fff;
-    padding: 40px 0;
-    margin: 20px 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.hero .btn {
-    display: inline-block;
-    padding: 15px 25px;
-    margin: 10px;
-    background-color: #0096c7;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-.hero .btn:hover {
-    background-color: #023e8a;
-}
-
-/* Botões "EM BREVE" */
-.hero .btn:nth-child(4),
-.hero .btn:nth-child(5) {
-    background-color: #adb5bd;
-    cursor: not-allowed;
-}
-
-/* Rodapé */
-footer {
-    background-color: #0077b6;
-    color: #fff;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Select */
-select {
-    max-width: 300px;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #0077b6;
-    border-radius: 5px;
-    background-color: #f8f9fa;
-    color: #333;
-    cursor: pointer;
-    outline: none;
-    transition: border 0.3s, background 0.3s;
-}
-
-select:hover,
-select:focus {
-    border-color: #023e8a;
-    background-color: #e3f2fd;
-}
-
-/* Select escalar*/
-.escalar-box {
-    margin: 10px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 2px solid #ddd;
-    border-radius: 12px;
-    width: fit-content;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.escalar-box label {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.escalar-box input {
-    width: 100px;
-    padding: 5px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    text-align: center;
-    transition: border 0.3s;
-}
-
-.escalar-box input:focus {
-    border-color: #007BFF;
-    outline: none;
-}
-
-
-/* Botões gerais */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #0077b6;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-    cursor: pointer;
-    border: none;
-}
-
-.btn:hover {
-    background-color: #023e8a;
-}
-
-.btn.limpar {
-    background-color: #f59e0b;
-}
-
-.btn.limpar:hover {
-    background-color: #d97706;
-}
-
-.btn.voltar {
-    background-color: #6b7280;
-}
-
-.btn.voltar:hover {
-    background-color: #4b5563;
-}
-
-/* Botão específico de calcular */
-button.btn {
-    font-weight: bold;
-    padding: 12px 25px;
-    transform: scale(1);
-    transition: background 0.3s, transform 0.2s;
-}
-
-button.btn:hover {
-    transform: scale(1.05);
-}
-
-/* Box de botões */
-.botoes-box {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.botoes-box button {
-    padding: 5px 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #0096c7;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.botoes-box button:hover {
-    background-color: #023e8a;
-}
-
-/* Matrizes */
+/* Alinhar as matrizes lado a lado */
 .matrizes {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Para centralizar as opções de operação e o botão calcular */
+.operacao-calculo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Centralizar os botões 'Voltar' */
+.botao-voltar {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0 auto;
+}
+
+.escalar-calculo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.escalar-box input[type="number"] {
+    width: 100px;
+    /* Ajusta a largura do input para o valor escalar */
+    text-align: center;
+    border: 1px solid hsl(0, 0%, 86%);
+    border-radius: 4px;
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(0, 0%, 21%);
+    padding: 5px;
 }
 
 .matriz-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 200px;
-    min-height: 200px;
+    text-align: center;
+    margin: 0 auto 20px auto;
+    max-width: 400px;
 }
 
-.matriz-box h2 {
-    margin-bottom: 15px;
-}
-
-.matriz-box div,
-.matriz-row {
+.botoes-box {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
-#matriz-container-A,
-#matriz-container-B {
-    display: grid;
-    grid-template-columns: repeat(3, 40px);
-    grid-gap: 5px;
+/* Centraliza o botão resolver */
+.resolver-box {
+    display: flex;
     justify-content: center;
-    padding: 10px;
-    background: #f8f9fa;
-    border-radius: 5px;
-    min-height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-#matriz-container-A input,
-#matriz-container-B input {
+/* Centraliza o bloco principal da matriz (usado em Gauss, Cramer, etc.) */
+.matriz-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/* Minhas alterações */
+/* css para matriz */
+.matriz-celula {
     width: 40px;
     height: 40px;
     text-align: center;
-    font-size: 18px;
-    border: 1px solid #ccc;
+    border: 1px solid hsl(0, 0%, 80%);
     border-radius: 4px;
-}
-
-.input-matriz,
-.input-resultado {
-    width: 60px;
-    padding: 8px;
-    margin: 0 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    text-align: center;
-}
-
-.input-resultado {
-    background-color: #fff7e6;
-}
-
-.variavel,
-.sinal {
+    margin: 2px;
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(0, 0%, 21%);
     font-weight: bold;
+    font-size: 16px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
 }
 
-.variavel {
-    margin-right: 5px;
+.matriz-celula:focus {
+    background-color: hsl(0, 0%, 90%);
+    outline: none;
 }
 
-.sinal {
-    margin: 0 8px;
+#matrizes-wrapper {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
-.matriz-wrapper {
-    margin-top: 30px;
-    text-align: center;
+.matriz-bloco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.matriz-identificada {
-    display: inline-block;
-    background-color: #f0f4ff;
+/* Estilo da seção de detalhamento */
+.detalhamento {
+    margin-bottom: 40px;
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
 
-.matriz-identificada h2 {
+.detalhamento h2 {
     margin-bottom: 15px;
-    color: #2563eb;
+    font-size: 1.5rem;
+    color: hsl(0, 0%, 21%);
 }
 
-.linha-matriz {
-    margin-bottom: 15px;
-}
-
-/* Tabelas */
-.matriz-resultado {
+.explicacao {
     overflow-x: auto;
-    margin-top: 20px;
 }
 
-.matriz-table,
-table.tabela-matriz {
-    width: auto;
-    border-collapse: collapse;
-    margin: 1rem auto;
-    text-align: center;
-}
-
-.matriz-table td,
-table.tabela-matriz td {
-    border: 1px solid #ccc;
-    padding: 10px 15px;
-    min-width: 40px;
-    font-weight: bold;
-    background-color: #f9f9f9;
-    font-size: 1rem;
-}
-
-/* Explicação passo a passo */
 .explicacao table {
-    width: 100%;
-    margin-top: 10px;
+    margin: 0 auto;
     border-collapse: collapse;
+    background-color: white;
+    width: 100%;
+    max-width: 800px;
 }
 
 .explicacao td {
     border: 1px solid #ccc;
-    padding: 8px;
-    font-size: 0.9rem;
+    padding: 10px;
+    font-size: 0.95rem;
+    color: hsl(0, 0%, 21%);
 }
 
-/* Seções e subtítulos */
-section.content h3 {
-    margin-top: 2rem;
-    font-size: 1.5rem;
-    color: #2c3e50;
-}
-
-section.content h4 {
-    margin-top: 1.2rem;
-    color: #34495e;
-    font-size: 1.2rem;
-}
-
-/* Resultados e Detalhamento */
-.detalhamento {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-left: 5px solid #3498db;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.detalhamento ul {
-    list-style-type: decimal;
-    padding-left: 2rem;
-    text-align: left;
-}
-
-.detalhamento li {
-    background-color: #f8f9fa;
-    border-left: 4px solid #3498db;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-size: 1rem;
-    line-height: 1.6;
-    transition: background 0.3s ease;
-}
-
-.detalhamento li:hover {
-    background-color: #e1f5fe;
-}
-
-/* Seção da resposta */
+/* Estilo da seção de resultado */
 .resultado {
-    background-color: #eafaf1;
-    border: 1px solid #27ae60;
-    border-left: 5px solid #27ae60;
-    padding: 1rem;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    margin-top: 2rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.resultado h3 {
-    color: #2c7a4b;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
+.resultado h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: hsl(0, 0%, 21%);
 }
 
-.resultado ul {
-    padding-left: 2rem;
-    text-align: left;
-}
-
-.resultado li {
-    background-color: #e8f5e9;
-    border-left: 4px solid #27ae60;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-size: 1.1rem;
-}
-
-/* Botões de navegação */
-.botoes-box {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-section.content {
-    padding: 2rem 1rem;
-}
-
-section.content h3 {
-    font-size: 1.6rem;
+.matriz-resultado {
     text-align: center;
-    margin-bottom: 1rem;
+}
+
+.matriz-table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.matriz-table td {
+    border: 1px solid #ccc;
+    padding: 12px 20px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* Estilo dos botões */
+.botoes-box {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.botoes-box .btn {
+    background-color: hsl(204, 86%, 53%);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 0 10px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.botoes-box .btn:hover {
+    background-color: hsl(204, 86%, 40%);
+}
+
+.botoes-box .btn.voltar {
+    background-color: hsl(0, 0%, 48%);
+}
+
+.botoes-box .btn.voltar:hover {
+    background-color: hsl(0, 0%, 38%);
+}
+
+.tabela-matriz {
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.tabela-matriz td {
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    text-align: center;
+}
+
+.passo {
+    margin-bottom: 20px;
+}
+
+.detalhamento.erro {
+    color: #a94442;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+    padding: 15px;
+}
+
+strong {
+    color: #000;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 2rem;
 }

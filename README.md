@@ -27,4 +27,4 @@ HTML: Estruturação das páginas e formulários.
 CSS: Estilização visual da interface.
 JavaScript: Interatividade, geração dinâmica de matrizes e validação de dados no navegador.
 PHP: Processamento backend dos cálculos matriciais.
-
+BULMA: Framework CSS moderno e responsivo, utilizado para construir o layout e os componentes da interface de forma rápida e elegante.
