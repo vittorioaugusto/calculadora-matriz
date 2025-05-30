@@ -26,12 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<header>
-    <div class="container">
-        <h1>Resultado da Matriz Escalar</h1>
-    </div>
-</header>
-
 <section class="content">
     <div class="container">
         <div class="detalhamento">

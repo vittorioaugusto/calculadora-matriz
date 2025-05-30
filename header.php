@@ -29,8 +29,8 @@
                 <a class="navbar-item button is-primary is-rounded" href="/calculadora-matriz-main/operacoes-matrizes/matriz_escalar.php">Multiplicação por Escalar</a>
                 <a class="navbar-item button is-info is-rounded" href="/calculadora-matriz-main/sistemas-lineares/metodo_gauss.php">Método de Gauss</a>
                 <a class="navbar-item button is-success is-rounded" href="/calculadora-matriz-main/sistemas-lineares/metodo_cramer.php">Método de Cramer</a>
-                <a class="navbar-item button is-warning is-rounded" href="#">Cofatores, Determinantes e Matriz Inversa</a>
-                <a class="navbar-item button is-danger is-rounded" href="#">Em Breve!</a>
+                <a class="navbar-item button is-warning is-rounded" href="/calculadora-matriz-main/cofatores-determinante-inversa/cofatores_determinante_inversa.php">Cofatores, Determinantes e Matriz Inversa</a>
+                <a class="navbar-item button is-danger is-rounded" href="\calculadora-matriz-main\o-projeto.php">MatriXYZ</a>
             </div>
         </div>
     </nav>

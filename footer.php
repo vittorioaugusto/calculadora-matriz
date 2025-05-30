@@ -16,7 +16,7 @@
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
-          &copy; 2025 Calculadora de Matrizes. Todos os direitos reservados.
+          &copy; 2025 MatriXYZ - Calculadora de Matrizes. Todos os direitos reservados.
         </p>
       </div>
     </footer>

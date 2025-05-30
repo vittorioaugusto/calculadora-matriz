@@ -10,7 +10,9 @@ $sizeA = isset($_POST['sizeA']) ? intval($_POST['sizeA']) : 3;
             <div class="matriz-box">
                 <h2>Matriz</h2>
                 <input type="hidden" name="sizeA" id="sizeA" value="<?php echo $sizeA; ?>">
+                
                 <div id="matriz-container-A"></div>
+                
                 <div class="botoes-box">
                     <button type="button" class="button is-primary is-rounded" onclick="alterarMatriz('A', 'add')">+</button>
                     <button type="button" class="button is-primary is-rounded" onclick="alterarMatriz('A', 'remove')">-</button>

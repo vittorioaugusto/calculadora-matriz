@@ -360,3 +360,12 @@ strong {
     text-align: center;
     font-size: 2rem;
 }
+
+#img_sobre {
+    width: 120px;
+    display: block;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}

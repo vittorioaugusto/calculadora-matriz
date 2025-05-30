@@ -12,7 +12,7 @@ function atualizarMatriz(matriz) {
             input.type = 'text';
             input.name = `matriz${matriz}[${i}][${j}]`;
             input.value = '';
-            input.classList.add('matriz-celula'); // <-- Adiciona a classe CSS
+            input.classList.add('matriz-celula'); //
             matrizContainer.appendChild(input);
         }
     }
