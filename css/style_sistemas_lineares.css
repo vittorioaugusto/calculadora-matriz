@@ -1,0 +1,88 @@
+.matriz-wrapper {
+    background-color: #ffffff;
+    border: 1px solid #dcdfe3;
+    border-radius: 8px;
+    padding: 25px 20px; /* Mantive o padding original para não afetar o espaçamento interno */
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Importante para responsividade */
+    max-width: 500px; /* Define a largura máxima para o container branco */
+    width: 100%; /* Garante que ele ocupe 100% da largura disponível até o max-width */
+    margin-left: auto; /* Centraliza o bloco */
+    margin-right: auto; /* Centraliza o bloco */
+    /* -------------------------------------------------------- */
+}
+#matriz-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.matriz-scroll-lin {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 500px;
+    padding-bottom: 10px; 
+}
+
+/* Cada linha de equação gerada pelo JS */
+.linha-matriz {
+    display: flex; /* Alinha os inputs e spans horizontalmente */
+    align-items: center; /* Alinha os elementos verticalmente no centro da linha */
+    gap: 8px; /* Espaçamento entre os elementos (input, x1, +, etc.) */
+    margin-bottom: 15px; /* Espaço entre as linhas das equações */
+    flex-wrap: nowrap; /* Permite que os elementos quebrem a linha em telas menores */
+    justify-content: flex-start;}
+
+/* Estilo para os campos de input da matriz (coeficientes e termos independentes) */
+.matriz-celula {
+    width: 50px; /* Largura padrão dos inputs. */
+    height: 40px; /* Altura padrão dos inputs */
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Bordas arredondadas */
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Remover setas do input[type="number"] */
+.matriz-celula::-webkit-outer-spin-button,
+.matriz-celula::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.matriz-celula:focus {
+    border-color: #3498db; /* Cor da borda ao focar */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3); /* Sombra ao focar */
+    outline: none; /* Remove o contorno padrão do navegador */
+}
+
+/* Estilo para os rótulos das variáveis (x1, x2, etc.) e os sinais (+, =) */
+.variavel,
+.sinal {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    user-select: none; /* Impede seleção de texto */
+    white-space: nowrap; /* Evita que o texto quebre a linha */
+}
+
+/* ---------------------------------------------------- */
+/* ESTILOS DOS BOTÕES ESPECÍFICOS DESTA PÁGINA */
+/* ---------------------------------------------------- */
+
+/* Containers dos botões */
+.botoes-box, /* Contém os botões + - Limpar */
+.resolver-box, /* Contém o botão Resolver */
+.botao-voltar { /* Contém o link Voltar */
+    margin-top: 25px; /* Espaçamento superior */
+    display: flex;
+    justify-content: center; /* Centraliza os botões dentro de seus containers */
+    gap: 15px; /* Espaçamento entre os botões */
+    flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas pequenas */
+}

@@ -4,30 +4,48 @@ $sizeA = isset($_POST['sizeA']) ? intval($_POST['sizeA']) : 3;
 $sizeB = isset($_POST['sizeB']) ? intval($_POST['sizeB']) : 3;
 ?>
 
+<link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
+
+<h1 class="has-text-centered is-size-3 has-text-link">
+        <b>Desbrave os Cálculos Fundamentais!</b>
+</h1>
+
 <section class="section">
     <div class="container">
-
         <form method="post" action="resultado_operacoes_matrizes.php" id="form" onsubmit="return validarMatrizes()">
             <div id="matrizes-wrapper">
-                <div class="matriz-bloco" id="bloco-matriz-A">
+                <div class="matriz-container matriz-bloco" id="bloco-matriz-A">
                     <h2>Matriz A</h2>
                     <input type="hidden" name="sizeA" id="sizeA" value="<?php echo $sizeA; ?>">
-                    <div id="matriz-container-A"></div>
-                    <div class="botoes-box">
-                        <button type="button" class="button is-link is-rounded" onclick="alterarMatriz('A', 'add')">+</button>
-                        <button type="button" class="button is-link is-rounded" onclick="alterarMatriz('A', 'remove')">-</button>
-                        <button type="button" class="button is-link is-rounded" onclick="limparMatriz('A')">Limpar</button>
+                    <div class="matriz-scroll">
+                        <div id="matriz-container-A"></div>
                     </div>
+                    <div class="botoes-box">
+                        <button type="button" class="button is-link is-rounded"
+                            onclick="alterarMatriz('A', 'add')">+</button>
+                        <button type="button" class="button is-link is-rounded"
+                            onclick="alterarMatriz('A', 'remove')">-</button>
+                        <button type="button" class="button is-link is-rounded"
+                            onclick="limparMatriz('A')">Limpar</button>
+                    </div>
+
                 </div>
-                <div class="matriz-bloco" id="bloco-matriz-B">
+
+                <div class="matriz-container matriz-bloco" id="bloco-matriz-B">
                     <h2>Matriz B</h2>
                     <input type="hidden" name="sizeB" id="sizeB" value="<?php echo $sizeB; ?>">
-                    <div id="matriz-container-B"></div>
-                    <div class="botoes-box">
-                        <button type="button" class="button is-link is-rounded" onclick="alterarMatriz('B', 'add')">+</button>
-                        <button type="button" class="button is-link is-rounded" onclick="alterarMatriz('B', 'remove')">-</button>
-                        <button type="button" class="button is-link is-rounded" onclick="limparMatriz('B')">Limpar</button>
+                    <div class="matriz-scroll">
+                        <div id="matriz-container-B"></div>
                     </div>
+                        <div class="botoes-box">
+                            <button type="button" class="button is-link is-rounded"
+                                onclick="alterarMatriz('B', 'add')">+</button>
+                            <button type="button" class="button is-link is-rounded"
+                                onclick="alterarMatriz('B', 'remove')">-</button>
+                            <button type="button" class="button is-link is-rounded"
+                                onclick="limparMatriz('B')">Limpar</button>
+                        </div>
+                    
                 </div>
             </div>
 
@@ -57,6 +75,4 @@ $sizeB = isset($_POST['sizeB']) ? intval($_POST['sizeB']) : 3;
 
 <script src="../js/script_operacao_matrizes.js"></script>
 
-<?php
-include_once '../footer.php';
-?>
+<?php include_once '../footer.php'; ?>

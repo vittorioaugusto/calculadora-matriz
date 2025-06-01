@@ -1,10 +1,11 @@
 function atualizarMatriz(matriz) {
     let size = parseInt(document.getElementById('size' + matriz).value);
     let matrizContainer = document.getElementById('matriz-container-' + matriz);
-    
+
     matrizContainer.innerHTML = '';
     matrizContainer.style.display = 'grid';
     matrizContainer.style.gridTemplateColumns = `repeat(${size}, 40px)`;
+    matrizContainer.style.gap = '6px';
 
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
@@ -12,10 +13,12 @@ function atualizarMatriz(matriz) {
             input.type = 'text';
             input.name = `matriz${matriz}[${i}][${j}]`;
             input.value = '';
-            input.classList.add('matriz-celula'); //
+            input.classList.add('matriz-celula');
             matrizContainer.appendChild(input);
         }
     }
+
+    verificarLayoutResponsivo();
 }
 
 function alterarMatriz(matriz, acao) {
@@ -118,16 +121,16 @@ function verificarLayoutResponsivo() {
     const wrapper = document.getElementById('matrizes-wrapper');
 
     if (sizeA > 3 || sizeB > 3) {
-        wrapper.style.flexDirection = 'column';
-        wrapper.style.alignItems = 'center';
+        wrapper.classList.add('vertical');
+        wrapper.classList.remove('horizontal');
     } else {
-        wrapper.style.flexDirection = 'row';
-        wrapper.style.alignItems = 'flex-start';
+        wrapper.classList.add('horizontal');
+        wrapper.classList.remove('vertical');
     }
 }
 
-
 // Inicialização
-atualizarMatriz('A');
-atualizarMatriz('B');
-verificarLayoutResponsivo();
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarMatriz('A');
+    atualizarMatriz('B');
+});

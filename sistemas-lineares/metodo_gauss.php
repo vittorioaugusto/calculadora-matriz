@@ -3,6 +3,13 @@ include_once '../header.php';
 $size = isset($_POST['size']) ? intval($_POST['size']) : 2;
 ?>
 
+<link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
+<link rel="stylesheet" href="../css/style_sistemas_lineares.css">
+
+<h1 class="has-text-centered is-size-3 has-text-info">
+        <b>Este é o caminho para a resolução de sistemas!</b>
+</h1>
+
 <section class="section">
     <div class="container">
 
@@ -10,13 +17,14 @@ $size = isset($_POST['size']) ? intval($_POST['size']) : 2;
             <input type="hidden" name="size" id="size" value="<?php echo $size; ?>">
 
             <div class="matriz-wrapper">
+                <div class="matriz-scroll-lin">
                 <div id="matriz-container"></div>
-            </div>
-
-            <div class="botoes-box">
-                <button type="button" class="button is-info is-rounded" onclick="alterarMatriz('add')">+</button>
-                <button type="button" class="button is-info is-rounded" onclick="alterarMatriz('remove')">-</button>
-                <button type="button" class="button is-info is-rounded" onclick="limparMatriz()">Limpar</button>
+                </div>
+                <div class="botoes-box">
+                    <button type="button" class="button is-info is-rounded" onclick="alterarMatriz('add')">+</button>
+                    <button type="button" class="button is-info is-rounded" onclick="alterarMatriz('remove')">-</button>
+                    <button type="button" class="button is-info is-rounded" onclick="limparMatriz()">Limpar</button>
+                </div>
             </div>
 
             <div class="resolver-box">

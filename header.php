@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de Matrizes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="/calculadora-matriz-main/css/style.css">
 
 </head>
@@ -14,7 +15,7 @@
     <nav class="navbar is-light is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/calculadora-matriz-main/index.php">
-                <img src="/calculadora-matriz-main/img/icon1.png" alt="Logo" />
+                <img src="/calculadora-matriz-main/img/icon2.png" alt="Logo" />
             </a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
                 <span aria-hidden="true"></span>
@@ -30,10 +31,10 @@
                 <a class="navbar-item button is-info is-rounded" href="/calculadora-matriz-main/sistemas-lineares/metodo_gauss.php">Método de Gauss</a>
                 <a class="navbar-item button is-success is-rounded" href="/calculadora-matriz-main/sistemas-lineares/metodo_cramer.php">Método de Cramer</a>
                 <a class="navbar-item button is-warning is-rounded" href="/calculadora-matriz-main/cofatores-determinante-inversa/cofatores_determinante_inversa.php">Cofatores, Determinantes e Matriz Inversa</a>
-                <a class="navbar-item button is-danger is-rounded" href="\calculadora-matriz-main\o-projeto.php">MatriXYZ</a>
+                <a class="navbar-item button is-danger is-rounded" href="matrixyz.php">MatriXYZ</a>
             </div>
         </div>
     </nav>
 
     <section class="section">
-        <div class="container">
+        <div class="container is-fluid">
