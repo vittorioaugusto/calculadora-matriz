@@ -1,10 +1,8 @@
 .matriz-wrapper {
     background-color: #ffffff;
-    border: 1px solid #dcdfe3;
     border-radius: 8px;
     padding: 25px 20px; /* Mantive o padding original para não afetar o espaçamento interno */
     margin-bottom: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +11,10 @@
     width: 100%; /* Garante que ele ocupe 100% da largura disponível até o max-width */
     margin-left: auto; /* Centraliza o bloco */
     margin-right: auto; /* Centraliza o bloco */
+    border: 3px solid black;
+    box-shadow:
+        6px 6px 0px 0px black, /* Sombra sólida preta para baixo e para a direita */
+        0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade sutil */
     /* -------------------------------------------------------- */
 }
 #matriz-container {

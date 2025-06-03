@@ -24,6 +24,10 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    border: 3px solid black;
+    box-shadow:
+        6px 6px 0px 0px black, /* Sombra sólida preta para baixo e para a direita */
+        0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade sutil */
 }
 
 /* Seção principal */
@@ -41,7 +45,6 @@ h2 {
 /* Blocos das matrizes */
 .matriz-bloco {
   background-color: #ffffff;
-  border: 1px solid #dcdfe3;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
@@ -84,7 +87,7 @@ h2 {
 /* Botões */
 .button {
   color: #fff;
-  border: none;
+  border: 2px solid black;
   padding: 10px 14px;
   border-radius: 6px;
   cursor: pointer;
