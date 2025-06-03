@@ -5,7 +5,7 @@ $sizeA = isset($_POST['sizeA']) ? intval($_POST['sizeA']) : 3;
 
 <link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
 
-<h1 class="has-text-centered is-size-3 has-text-custom-amarelo">
+<h1 class="has-text-centered has-text-custom-amarelo main-title">
         <b>Multiplique o seu conhecimento!</b>
 </h1>
 

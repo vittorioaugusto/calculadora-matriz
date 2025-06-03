@@ -6,7 +6,7 @@ $size = isset($_POST['size']) ? intval($_POST['size']) : 2;
 <link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
 <link rel="stylesheet" href="../css/style_sistemas_lineares.css">
 
-<h1 class="has-text-centered is-size-3 has-text-custom-limao">
+<h1 class="has-text-centered has-text-custom-limao main-title">
         <b>Este é o caminho para a resolução de sistemas!</b>
 </h1>
 

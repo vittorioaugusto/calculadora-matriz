@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
+
 /* --- Variáveis CSS (para organização de cores do Bulma) --- */
 :root {
     --bulma-link: #3273dc;
@@ -9,6 +11,34 @@
     --bulma-dark: #363636;
     --bulma-light: #f5f5f5;
     --bulma-text: hsl(0, 0%, 21%); /* Cor de texto padrão do Bulma */
+}
+
+h1.has-text-custom-laranja,
+h1.has-text-custom-amarelo,
+h1.has-text-custom-limao,
+h1.has-text-custom-verdeclaro,
+h1.has-text-custom-menta,
+h1.has-text-custom-violeta,
+h1.has-text-custom-rosa {
+    font-family: 'Jersey 20', sans-serif;
+}
+
+.main-title {
+    font-family: 'Jersey 20', sans-serif;
+    font-size: 3em;
+}
+
+@media (max-width: 768px) { /* Para tablets e celulares */
+    .main-title-index {
+        font-size: 2em; /* Reduz para 2em em telas menores */
+        line-height: 1.2; /* Ajuste o espaçamento entre linhas se o texto estiver muito junto */
+    }
+}
+
+@media (max-width: 480px) { /* Para celulares pequenos */
+    .main-title-index {
+        font-size: 1.5em; /* Reduz ainda mais para telas muito pequenas */
+    }
 }
 
 /* --- Estilos Globais e Body --- */

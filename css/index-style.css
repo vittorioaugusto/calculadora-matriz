@@ -6,6 +6,44 @@ body {
     flex-direction: column;
 }
 
+.main-title-index {
+    font-family: 'Jersey 20', sans-serif;
+    font-size: 3em;
+    text-align: center;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+
+    background-image: linear-gradient(
+        to right,
+        #ff9240, /* Laranja */
+        #ffce1f, /* Amarelo */
+        #a7d934, /* Limão */
+        #74d240, /* Verde Claro */
+        #47cfb0, /* Menta */
+        #8d80e3, /* Violeta */
+        #faa0b3, /* Rosa */
+        #ff9240
+    ) !important; /* Adicionado !important */
+
+    background-size: 200% auto !important; /* Adicionado !important */
+
+    animation: gradient-animation 10s linear infinite !important;
+}
+
+@media (max-width: 768px) { /* Para tablets e celulares */
+    .main-title-index {
+        font-size: 2em; /* Reduz para 2em em telas menores */
+        line-height: 1.2; /* Ajuste o espaçamento entre linhas se o texto estiver muito junto */
+    }
+}
+
+@media (max-width: 480px) { /* Para celulares pequenos */
+    .main-title-index {
+        font-size: 1.5em; /* Reduz ainda mais para telas muito pequenas */
+    }
+}
+
 /* Estilo para a seção principal, ocupando espaço disponível e centralizando conteúdo */
 .section {
     flex-grow: 1;

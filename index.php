@@ -1,11 +1,15 @@
 <?php include_once 'header_index.php'; ?>
 
 <link rel="stylesheet" href="css/index-style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
+
 <script src="js/index-scroll.js" defer></script>
 
 <section class="section">
     <div class="container has-text-centered">
-        <h1 class="title is-size-3">Que a curiosidade guie os seus passos!</h1>
+        <h1 class="title main-title-index">Que a curiosidade guie os seus passos!</h1>
         <p class="subtitle mb-6">
             O mapa para os tesouros das matrizes está em suas mãos! No MatriXYZ,
             desmistificamos a álgebra linear e tornamos o aprendizado uma aventura emocionante e mágica. Comece a

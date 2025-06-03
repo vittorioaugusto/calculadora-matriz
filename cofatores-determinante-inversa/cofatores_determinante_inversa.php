@@ -5,7 +5,7 @@ $size = isset($_POST['size']) ? intval($_POST['size']) : 3;
 
 <link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
 
-<h1 class="has-text-centered is-size-3 has-text-custom-menta"><b>
+<h1 class="has-text-centered has-text-custom-menta main-title"><b>
     Para quem já compreendeu as operações básicas e métodos como Gauss e Cramer, e deseja explorar mais o universo das matrizes!
 </b></h1>
 
