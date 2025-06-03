@@ -6,7 +6,7 @@ $size = isset($_POST['size']) ? intval($_POST['size']) : 2;
 <link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
 <link rel="stylesheet" href="../css/style_sistemas_lineares.css">
 
-<h1 class="has-text-centered is-size-3 has-text-success">
+<h1 class="has-text-centered is-size-3 has-text-custom-verdeclaro">
         <b>A trilha para soluções de determinantes!</b>
 </h1>
 
@@ -21,19 +21,19 @@ $size = isset($_POST['size']) ? intval($_POST['size']) : 2;
                     <div id="matriz-container"></div>
                 </div>
                 <div class="botoes-box">
-                    <button type="button" class="button is-success is-rounded" onclick="alterarMatriz('add')">+</button>
-                    <button type="button" class="button is-success is-rounded"
+                    <button type="button" class="button is-custom-verdeclaro is-rounded" onclick="alterarMatriz('add')">+</button>
+                    <button type="button" class="button is-custom-verdeclaro is-rounded"
                         onclick="alterarMatriz('remove')">-</button>
-                    <button type="button" class="button is-success is-rounded" onclick="limparMatriz()">Limpar</button>
+                    <button type="button" class="button is-custom-verdeclaro is-rounded" onclick="limparMatriz()">Limpar</button>
                 </div>
             </div>
 
             <div class="resolver-box">
-                <button type="submit" class="button is-success is-rounded">Resolver</button>
+                <button type="submit" class="button is-custom-verdeclaro is-rounded">Resolver</button>
             </div>
 
             <div class="botao-voltar">
-                <a href="../index.php" class="button is-success is-rounded">Voltar</a>
+                <a href="../index.php" class="button is-custom-verdeclaro is-rounded">Voltar</a>
             </div>
         </form>
     </div>

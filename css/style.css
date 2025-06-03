@@ -138,6 +138,72 @@ a.navbar-item.button.is-custom-menta { background-color: #47cfb0 !important; col
 a.navbar-item.button.is-custom-violeta { background-color: #8d80e3 !important; color: white !important; }
 a.navbar-item.button.is-custom-rosa { background-color: #faa0b3 !important; color: white !important; }
 
+/* Botões de operações de matrizes */
+
+.button.is-custom-laranja {
+    background-color: #ff9240 !important;
+    color: white !important;
+}
+
+.button.is-custom-amarelo {
+    background-color: #ffce1f !important;
+    color: white !important;
+}
+
+.button.is-custom-limao {
+    background-color: #a7d934 !important;
+    color: white !important;
+}
+
+.button.is-custom-verdeclaro {
+    background-color: #74d240 !important;
+    color: white !important;
+}
+
+.button.is-custom-menta {
+    background-color: #47cfb0 !important;
+    color: white !important;
+}
+
+.button.is-custom-violeta {
+    background-color: #8d80e3 !important;
+    color: white !important;
+}
+
+.button.is-custom-rosa {
+    background-color: #faa0b3 !important;
+    color: white !important;
+}
+
+/* Classes de cor de texto personalizadas (mesmas cores dos botões) */
+
+.has-text-custom-laranja {
+    color: #ff9240 !important;
+}
+
+.has-text-custom-amarelo {
+    color: #ffce1f !important;
+}
+
+.has-text-custom-limao {
+    color: #a7d934 !important;
+}
+
+.has-text-custom-verdeclaro {
+    color: #74d240 !important;
+}
+
+.has-text-custom-menta {
+    color: #47cfb0 !important;
+}
+
+.has-text-custom-violeta {
+    color: #8d80e3 !important;
+}
+
+.has-text-custom-rosa {
+    color: #faa0b3 !important;
+}
 
 /* --- Footer --- */
 .footer {

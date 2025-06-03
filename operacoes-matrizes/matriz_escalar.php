@@ -5,7 +5,7 @@ $sizeA = isset($_POST['sizeA']) ? intval($_POST['sizeA']) : 3;
 
 <link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
 
-<h1 class="has-text-centered is-size-3 has-text-primary">
+<h1 class="has-text-centered is-size-3 has-text-custom-amarelo">
         <b>Multiplique o seu conhecimento!</b>
 </h1>
 
@@ -21,11 +21,11 @@ $sizeA = isset($_POST['sizeA']) ? intval($_POST['sizeA']) : 3;
                         <div id="matriz-container-A"></div>
                     </div>
                     <div class="botoes-box">
-                        <button type="button" class="button is-primary is-rounded"
+                        <button type="button" class="button is-custom-amarelo is-rounded"
                             onclick="alterarMatriz('A', 'add')">+</button>
-                        <button type="button" class="button is-primary is-rounded"
+                        <button type="button" class="button is-custom-amarelo is-rounded"
                             onclick="alterarMatriz('A', 'remove')">-</button>
-                        <button type="button" class="button is-primary is-rounded"
+                        <button type="button" class="button is-custom-amarelo is-rounded"
                             onclick="limparMatriz('A')">Limpar</button>
                     </div>
                 </div>
@@ -38,8 +38,8 @@ $sizeA = isset($_POST['sizeA']) ? intval($_POST['sizeA']) : 3;
                     </div>
 
                     <div class="botoes-acao">
-                        <button type="submit" class="button is-primary is-rounded">Calcular</button>
-                        <a href="../index.php" class="button is-primary is-rounded">Voltar</a>
+                        <button type="submit" class="button is-custom-amarelo is-rounded">Calcular</button>
+                        <a href="../index.php" class="button is-custom-amarelo is-rounded">Voltar</a>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@ $sizeB = isset($_POST['sizeB']) ? intval($_POST['sizeB']) : 3;
 
 <link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
 
-<h1 class="has-text-centered is-size-3 has-text-link">
+<h1 class="has-text-centered is-size-3 has-text-custom-laranja">
         <b>Desbrave os Cálculos Fundamentais!</b>
 </h1>
 
@@ -21,11 +21,11 @@ $sizeB = isset($_POST['sizeB']) ? intval($_POST['sizeB']) : 3;
                         <div id="matriz-container-A"></div>
                     </div>
                     <div class="botoes-box">
-                        <button type="button" class="button is-link is-rounded"
+                        <button type="button" class="button is-custom-laranja is-rounded"
                             onclick="alterarMatriz('A', 'add')">+</button>
-                        <button type="button" class="button is-link is-rounded"
+                        <button type="button" class="button is-custom-laranja is-rounded"
                             onclick="alterarMatriz('A', 'remove')">-</button>
-                        <button type="button" class="button is-link is-rounded"
+                        <button type="button" class="button is-custom-laranja is-rounded"
                             onclick="limparMatriz('A')">Limpar</button>
                     </div>
 
@@ -38,11 +38,11 @@ $sizeB = isset($_POST['sizeB']) ? intval($_POST['sizeB']) : 3;
                         <div id="matriz-container-B"></div>
                     </div>
                         <div class="botoes-box">
-                            <button type="button" class="button is-link is-rounded"
+                            <button type="button" class="button is-custom-laranja is-rounded"
                                 onclick="alterarMatriz('B', 'add')">+</button>
-                            <button type="button" class="button is-link is-rounded"
+                            <button type="button" class="button is-custom-laranja is-rounded"
                                 onclick="alterarMatriz('B', 'remove')">-</button>
-                            <button type="button" class="button is-link is-rounded"
+                            <button type="button" class="button is-custom-laranja is-rounded"
                                 onclick="limparMatriz('B')">Limpar</button>
                         </div>
                     
@@ -61,14 +61,14 @@ $sizeB = isset($_POST['sizeB']) ? intval($_POST['sizeB']) : 3;
                         </div>
                     </div>
                     <div class="control">
-                        <button type="submit" class="button is-link is-rounded">Calcular</button>
+                        <button type="submit" class="button is-custom-laranja is-rounded">Calcular</button>
                     </div>
                 </div>
             </div>
         </form>
 
         <div class="matrizes">
-            <a href="../index.php" class="button is-link is-rounded">Voltar</a>
+            <a href="../index.php" class="button is-custom-laranja is-rounded">Voltar</a>
         </div>
     </div>
 </section>
