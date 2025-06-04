@@ -57,7 +57,8 @@ body {
     font-size: 1rem !important;
     overflow-x: hidden; /* Evita a barra de rolagem horizontal principal */
     font-family: 'Arial', sans-serif;
-    color: #e0e0e0; /* Cor do texto padrão para o body (claro para contraste) */
+    color: #363636; /* Cor do texto padrão para o body (claro para contraste) */
+    background-color: #F4F6F8;
 }
 
 p { /* Garante que parágrafos padrão também sejam 16px */
@@ -266,4 +267,16 @@ a.navbar-item.button.is-custom-rosa { background-color: #faa0b3 !important; colo
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 25px;
+}
+
+.section{
+    color: #363636;
+}
+
+.container h2{
+    color: #363636;
+}
+
+strong{
+    color: #363636
 }

@@ -128,8 +128,8 @@ try {
             </div>
 
             <div class="botoes-box">
-                <a href="../sistemas-lineares/metodo_gauss.php" class="btn voltar">Voltar à calculadora</a>
-                <a href="../index.php" class="btn">Página Inicial</a>
+                <a href="../sistemas-lineares/metodo_gauss.php" class="button is-link">Voltar à calculadora</a>
+                <a href="../index.php" class="button is-primary">Página Inicial</a>
             </div>
         <?php endif; ?>
     </div>

@@ -172,6 +172,7 @@ h2 {
   padding: 10px 14px;
   border-radius: 6px;
   transition: background-color 0.3s;
+  background-color: #FF9240;
   gap: 15px;
 }
 
