@@ -20,11 +20,11 @@ $size = isset($_POST['size']) ? intval($_POST['size']) : 3;
                     <div id="matriz-container-A" class="mb-4"></div>
                 </div>
                 <div class="botoes-box">
-                    <button type="button" class="button is-custom-menta is-rounded"
+                    <button type="button" class="button is-custom-menta is-rounded no-shadow"
                         onclick="alterarMatriz('A', 'add')">+</button>
-                    <button type="button" class="button is-custom-menta is-rounded"
+                    <button type="button" class="button is-custom-menta is-rounded no-shadow"
                         onclick="alterarMatriz('A', 'remove')">-</button>
-                    <button type="button" class="button is-custom-menta is-rounded"
+                    <button type="button" class="button is-custom-menta is-rounded no-shadow"
                         onclick="limparMatriz('A')">Limpar</button>
                 </div>
 

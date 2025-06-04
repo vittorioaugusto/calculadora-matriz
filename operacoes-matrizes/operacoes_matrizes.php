@@ -21,11 +21,11 @@ $sizeB = isset($_POST['sizeB']) ? intval($_POST['sizeB']) : 3;
                         <div id="matriz-container-A"></div>
                     </div>
                     <div class="botoes-box">
-                        <button type="button" class="button is-custom-laranja is-rounded"
+                        <button type="button" class="button is-custom-laranja is-rounded no-shadow"
                             onclick="alterarMatriz('A', 'add')">+</button>
-                        <button type="button" class="button is-custom-laranja is-rounded"
+                        <button type="button" class="button is-custom-laranja is-rounded no-shadow"
                             onclick="alterarMatriz('A', 'remove')">-</button>
-                        <button type="button" class="button is-custom-laranja is-rounded"
+                        <button type="button" class="button is-custom-laranja is-rounded no-shadow"
                             onclick="limparMatriz('A')">Limpar</button>
                     </div>
 
@@ -38,11 +38,11 @@ $sizeB = isset($_POST['sizeB']) ? intval($_POST['sizeB']) : 3;
                         <div id="matriz-container-B"></div>
                     </div>
                         <div class="botoes-box">
-                            <button type="button" class="button is-custom-laranja is-rounded"
+                            <button type="button" class="button is-custom-laranja is-rounded no-shadow"
                                 onclick="alterarMatriz('B', 'add')">+</button>
-                            <button type="button" class="button is-custom-laranja is-rounded"
+                            <button type="button" class="button is-custom-laranja is-rounded no-shadow"
                                 onclick="alterarMatriz('B', 'remove')">-</button>
-                            <button type="button" class="button is-custom-laranja is-rounded"
+                            <button type="button" class="button is-custom-laranja is-rounded no-shadow"
                                 onclick="limparMatriz('B')">Limpar</button>
                         </div>
                     
