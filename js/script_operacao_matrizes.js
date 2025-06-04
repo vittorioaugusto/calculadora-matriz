@@ -1,6 +1,10 @@
 function atualizarMatriz(matriz) {
-    let size = parseInt(document.getElementById('size' + matriz).value);
+    let sizeInput = document.getElementById('size' + matriz);
+    if (!sizeInput) return;
+
+    let size = parseInt(sizeInput.value);
     let matrizContainer = document.getElementById('matriz-container-' + matriz);
+    if (!matrizContainer) return;
 
     matrizContainer.innerHTML = '';
     matrizContainer.style.display = 'grid';
@@ -23,6 +27,8 @@ function atualizarMatriz(matriz) {
 
 function alterarMatriz(matriz, acao) {
     let sizeInput = document.getElementById('size' + matriz);
+    if (!sizeInput) return;
+
     let size = parseInt(sizeInput.value);
     if (acao === 'add') size++;
     if (acao === 'remove' && size > 2) size--;
@@ -116,9 +122,14 @@ function validarMatrizEscalar() {
 }
 
 function verificarLayoutResponsivo() {
-    const sizeA = parseInt(document.getElementById('sizeA').value);
-    const sizeB = parseInt(document.getElementById('sizeB').value);
+    const sizeAInput = document.getElementById('sizeA');
+    const sizeBInput = document.getElementById('sizeB');
     const wrapper = document.getElementById('matrizes-wrapper');
+
+    if (!sizeAInput || !sizeBInput || !wrapper) return;
+
+    const sizeA = parseInt(sizeAInput.value);
+    const sizeB = parseInt(sizeBInput.value);
 
     if (sizeA > 3 || sizeB > 3) {
         wrapper.classList.add('vertical');
