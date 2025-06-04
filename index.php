@@ -1,11 +1,10 @@
 <?php include_once 'header_index.php'; ?>
 
 <link rel="stylesheet" href="css/index-style.css">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
-
-<script src="js/index-scroll.js" defer></script>
 
 <section class="section">
     <div class="container has-text-centered">
@@ -15,11 +14,6 @@
             desmistificamos a álgebra linear e tornamos o aprendizado uma aventura emocionante e mágica. Comece a
             explorar!
         </p>
-
-        <div class="switch-navigation-wrapper" style="position: relative;">
-            <button class="switch-nav-button is-left" aria-label="Anterior">
-                <i class="fas fa-chevron-left"></i>
-            </button>
 
             <div class="switch-menu-container">
                 <div class="switch-menu">
@@ -77,9 +71,6 @@
                 </div>
             </div>
 
-            <button class="switch-nav-button is-right" aria-label="Próximo">
-                <i class="fas fa-chevron-right"></i>
-            </button>
         </div>
     </div>
 </section>

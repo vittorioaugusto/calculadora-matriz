@@ -40,7 +40,7 @@ body {
 
 @media (max-width: 480px) { /* Para celulares pequenos */
     .main-title-index {
-        font-size: 1.5em; /* Reduz ainda mais para telas muito pequenas */
+        font-size: 2em; /* Reduz ainda mais para telas muito pequenas */
     }
 }
 
@@ -54,7 +54,7 @@ body {
     padding: 3rem 1rem;
 }
 
-/* Wrapper para o sistema de navegação (botões + menu) */
+/* Wrapper para o sistema de navegação */
 .switch-navigation-wrapper {
     display: flex;
     align-items: center;
@@ -76,38 +76,6 @@ body {
     padding: 2rem 1rem;
     scroll-snap-type: x mandatory;
     overflow-x: auto;
-    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
-    -ms-overflow-style: none; /* Esconde a barra de rolagem no IE e Edge */
-}
-
-/* Esconde a barra de rolagem em navegadores Webkit (Chrome, Safari) */
-.switch-menu::-webkit-scrollbar {
-    display: none;
-}
-
-/* Estilo para os botões de navegação (setas) */
-.switch-nav-button {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #333;
-    padding: 0 1rem;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.switch-nav-button.is-left {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.switch-nav-button.is-right {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 /* Estilo para os tiles individuais */
