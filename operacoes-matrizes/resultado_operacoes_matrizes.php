@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
+
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $operacao = $_POST['operacao'] ?? '';

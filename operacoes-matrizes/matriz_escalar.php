@@ -1,5 +1,6 @@
 <?php
 include_once '../header.php';
+
 $sizeA = isset($_POST['sizeA']) ? intval($_POST['sizeA']) : 3;
 ?>
 

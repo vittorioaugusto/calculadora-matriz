@@ -1,5 +1,8 @@
+<link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
+
 <?php
 include_once '../header.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sizeA = intval($_POST['sizeA']);
     $escalar = floatval($_POST['escalar']);
