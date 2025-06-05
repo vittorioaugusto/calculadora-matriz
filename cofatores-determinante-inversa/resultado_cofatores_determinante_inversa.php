@@ -3,7 +3,8 @@
 <?php
 include_once '../header.php';
 
-function isSquareMatrix($matrix) {
+function isSquareMatrix($matrix)
+{
     $n = count($matrix);
     foreach ($matrix as $row) {
         if (!is_array($row) || count($row) !== $n) {
@@ -13,7 +14,8 @@ function isSquareMatrix($matrix) {
     return true;
 }
 
-function getCofactor($matrix, $row, $col) {
+function getCofactor($matrix, $row, $col)
+{
     $minor = [];
     foreach ($matrix as $i => $r) {
         if ($i == $row) continue;
@@ -27,7 +29,8 @@ function getCofactor($matrix, $row, $col) {
     return $minor;
 }
 
-function determinant($matrix) {
+function determinant($matrix)
+{
     $n = count($matrix);
     if ($n == 1) return $matrix[0][0];
     if ($n == 2) return $matrix[0][0] * $matrix[1][1] - $matrix[0][1] * $matrix[1][0];
@@ -40,7 +43,8 @@ function determinant($matrix) {
     return $det;
 }
 
-function cofatorMatrix($matrix) {
+function cofatorMatrix($matrix)
+{
     $n = count($matrix);
     $cofatores = [];
     for ($i = 0; $i < $n; $i++) {
@@ -53,11 +57,13 @@ function cofatorMatrix($matrix) {
     return $cofatores;
 }
 
-function transpose($matrix) {
+function transpose($matrix)
+{
     return array_map(null, ...$matrix);
 }
 
-function inverse($matrix) {
+function inverse($matrix)
+{
     $det = determinant($matrix);
     if (abs($det) < 1e-10) throw new Exception("A matriz não possui inversa (determinante zero).");
 
@@ -73,7 +79,8 @@ function inverse($matrix) {
     return $inv;
 }
 
-function renderTable($matrix) {
+function renderTable($matrix)
+{
     $html = "<table border='1' style='border-collapse: collapse; text-align: center; margin-bottom: 10px;'>";
     foreach ($matrix as $row) {
         $html .= "<tr>";
@@ -87,7 +94,8 @@ function renderTable($matrix) {
     return $html;
 }
 
-function detalharDeterminante($matrix, $linha = 0) {
+function detalharDeterminante($matrix, $linha = 0)
+{
     $n = count($matrix);
     if ($n == 1) {
         return "<p>Determinante da matriz 1x1: {$matrix[0][0]}</p>";
@@ -184,7 +192,6 @@ $resultado = [];
                 echo $resultado;
             }
             echo "</div>";
-
         } catch (Exception $e) {
             echo "<div class='notification is-danger'>Erro: {$e->getMessage()}</div>";
         }

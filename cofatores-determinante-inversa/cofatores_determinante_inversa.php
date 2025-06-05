@@ -6,8 +6,8 @@ $size = isset($_POST['size']) ? intval($_POST['size']) : 3;
 <link rel="stylesheet" href="/calculadora-matriz-main/css/style_matrizes.css">
 
 <h1 class="has-text-centered has-text-custom-menta main-title"><b>
-    Para quem já compreendeu as operações básicas e métodos como Gauss e Cramer, e deseja explorar mais o universo das matrizes!
-</b></h1>
+        Para quem já compreendeu as operações básicas e métodos como Gauss e Cramer, e deseja explorar mais o universo das matrizes!
+    </b></h1>
 
 <section class="section">
     <div class="container">
@@ -27,15 +27,14 @@ $size = isset($_POST['size']) ? intval($_POST['size']) : 3;
                     <button type="button" class="button is-custom-menta is-rounded no-shadow"
                         onclick="limparMatriz('A')">Limpar</button>
                 </div>
+            </div>
 
+            <div class="botoes-acao">
+                <button type="submit" name="acao" value="cofator" class="button is-custom-menta is-rounded">Cofator</button>
+                <button type="submit" name="acao" value="determinante" class="button is-custom-menta is-rounded">Determinante</button>
+                <button type="submit" name="acao" value="inversa" class="button is-custom-menta is-rounded">Inversa</button>
             </div>
         </form>
-
-        <div class="botoes-acao">
-            <button type="submit" name="acao" value="cofator" class="button is-custom-menta is-rounded">Cofator</button>
-            <button type="submit" name="acao" value="determinante" class="button is-custom-menta is-rounded">Determinante</button>
-            <button type="submit" name="acao" value="inversa" class="button is-custom-menta is-rounded">Inversa</button>
-        </div>
 
         <div class="botoes-acao">
             <a href="../index.php" class="button is-custom-menta is-rounded">Voltar</a>
