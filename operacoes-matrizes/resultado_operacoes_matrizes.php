@@ -6,40 +6,107 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $matrizA = [];
     $matrizB = [];
 
+    // --- Recebe matriz A --- //
     foreach ($_POST['matrizA'] as $i => $linha) {
         foreach ($linha as $j => $valor) {
-            $matrizA[intval($i)][intval($j)] = is_numeric($valor) ? floatval($valor) : 0;
-        }
-    }
-    foreach ($_POST['matrizB'] as $i => $linha) {
-        foreach ($linha as $j => $valor) {
-            $matrizB[intval($i)][intval($j)] = is_numeric($valor) ? floatval($valor) : 0;
+            $matrizA[intval($i)][intval($j)] = $valor;
         }
     }
 
+    // --- Recebe matriz B --- //
+    foreach ($_POST['matrizB'] as $i => $linha) {
+        foreach ($linha as $j => $valor) {
+            $matrizB[intval($i)][intval($j)] = $valor;
+        }
+    }
+
+    // --- Detecta se há células vazias --- //
+    $vazioA = false;
+    $vazioB = false;
+    foreach ($matrizA as $linha) {
+        foreach ($linha as $valor) {
+            if ($valor === '' || $valor === null) {
+                $vazioA = true;
+                break 2;
+            }
+        }
+    }
+    foreach ($matrizB as $linha) {
+        foreach ($linha as $valor) {
+            if ($valor === '' || $valor === null) {
+                $vazioB = true;
+                break 2;
+            }
+        }
+    }
+
+    // --- Calcula dimensões --- //
     $linhasA = count($matrizA);
     $colunasA = count($matrizA[0]);
     $linhasB = count($matrizB);
     $colunasB = count($matrizB[0]);
 
-    if (($operacao == 'adicao' || $operacao == 'subtracao') && ($linhasA !== $linhasB || $colunasA !== $colunasB)) {
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
-        Swal.fire({ icon: 'error', title: 'Erro', text: 'As matrizes devem ter o mesmo tamanho.' })
-        .then(() => window.history.back());
-        </script>";
-        exit;
+    // --- Verificações de compatibilidade e campos vazios --- //
+
+    // Caso adição ou subtração
+    if (($operacao == 'adicao' || $operacao == 'subtracao')) {
+        if ($linhasA !== $linhasB || $colunasA !== $colunasB || $vazioA || $vazioB) {
+            echo "<!DOCTYPE html>
+            <html lang='pt-br'>
+            <head>
+                <meta charset='UTF-8'>
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            </head>
+            <body>
+                <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'As matrizes devem ter o mesmo tamanho, o mesmo número de linhas e colunas.'
+                }).then(() => window.history.back());
+                </script>
+            </body>
+            </html>";
+            exit;
+        }
     }
 
-    if ($operacao == 'multiplicacao' && $colunasA !== $linhasB) {
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
-        Swal.fire({ icon: 'error', title: 'Erro', text: 'Colunas de A devem igualar linhas de B para multiplicar.' })
-        .then(() => window.history.back());
-        </script>";
-        exit;
+    // Caso multiplicação
+    if ($operacao == 'multiplicacao') {
+        if ($colunasA !== $linhasB || $vazioA || $vazioB) {
+            echo "<!DOCTYPE html>
+            <html lang='pt-br'>
+            <head>
+                <meta charset='UTF-8'>
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            </head>
+            <body>
+                <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'O número de colunas da matriz da esquerda deve ser igual número de linhas da matriz da direita.'
+                }).then(() => window.history.back());
+                </script>
+            </body>
+            </html>";
+            exit;
+        }
     }
 
+    // --- Converte valores numéricos após validar --- //
+    foreach ($matrizA as $i => $linha) {
+        foreach ($linha as $j => $valor) {
+            $matrizA[$i][$j] = floatval($valor);
+        }
+    }
+    foreach ($matrizB as $i => $linha) {
+        foreach ($linha as $j => $valor) {
+            $matrizB[$i][$j] = floatval($valor);
+        }
+    }
+
+    // --- Operações --- //
     $resultado = [];
     $explicacao = "";
 
@@ -89,11 +156,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
 
         default:
-            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-            <script>
-            Swal.fire({ icon: 'error', title: 'Erro', text: 'Operação inválida.' })
-            .then(() => window.history.back());
-            </script>";
+            echo "<!DOCTYPE html>
+            <html lang='pt-br'>
+            <head>
+                <meta charset='UTF-8'>
+                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            </head>
+            <body>
+                <script>
+                Swal.fire({ icon: 'error', title: 'Erro', text: 'Operação inválida.' })
+                .then(() => window.history.back());
+                </script>
+            </body>
+            </html>";
             exit;
     }
 
