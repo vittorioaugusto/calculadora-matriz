@@ -8,14 +8,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $escalar = floatval($_POST['escalar']);
 
     $matrizA = [];
+    $preenchido = false; // Flag para verificar se existe algum valor
+
     for ($i = 0; $i < $sizeA; $i++) {
         for ($j = 0; $j < $sizeA; $j++) {
-            $matrizA[$i][$j] = floatval($_POST["matrizA"]["$i"]["$j"] ?? 0);
+            $valor = $_POST["matrizA"]["$i"]["$j"] ?? '';
+            if ($valor !== '') $preenchido = true; // Pelo menos um valor preenchido
+            $matrizA[$i][$j] = floatval($valor ?: 0); // Se vazio, converte para 0
         }
     }
 
+    if (!$preenchido) {
+        echo "<!DOCTYPE html>
+        <html lang='pt-br'>
+        <head>
+            <meta charset='UTF-8'>
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        </head>
+        <body>
+            <script>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Atenção',
+                text: 'Por favor, preencha pelo menos um valor na matriz antes de calcular.'
+            }).then(() => window.history.back());
+            </script>
+        </body>
+        </html>";
+        exit;
+    }
+
+    // --- Cálculo da matriz escalar --- //
     $resultado = [];
-    $explicacao = "<p>Cada elemento da matriz foi multiplicado por $escalar:</p><table border='1' style='border-collapse: collapse; text-align: center;'>";
+    $explicacao = "<p>Cada elemento da matriz foi multiplicado por $escalar:</p>
+                   <table border='1' style='border-collapse: collapse; text-align: center;'>";
 
     for ($i = 0; $i < $sizeA; $i++) {
         $explicacao .= "<tr>";
@@ -28,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $explicacao .= "</table>";
 }
 ?>
+
 
 <section class="content">
     <div class="container">
