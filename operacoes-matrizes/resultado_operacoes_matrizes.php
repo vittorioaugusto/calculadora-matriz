@@ -20,25 +20,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // --- Detecta se há células vazias --- //
-    $vazioA = false;
-    $vazioB = false;
+    $vazioA = true;
+    $vazioB = true;
+
+    // Detecta se existe pelo menos um valor preenchido
     foreach ($matrizA as $linha) {
         foreach ($linha as $valor) {
-            if ($valor === '' || $valor === null) {
-                $vazioA = true;
+            if ($valor !== '' && $valor !== null) {
+                $vazioA = false;
                 break 2;
             }
         }
     }
+
     foreach ($matrizB as $linha) {
         foreach ($linha as $valor) {
-            if ($valor === '' || $valor === null) {
-                $vazioB = true;
+            if ($valor !== '' && $valor !== null) {
+                $vazioB = false;
                 break 2;
             }
         }
     }
+
+    if ($vazioA || $vazioB) {
+        echo "<!DOCTYPE html>
+    <html lang='pt-br'>
+    <head>
+        <meta charset='UTF-8'>
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    </head>
+    <body>
+        <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Atenção',
+            text: 'Por favor, preencha pelo menos um valor em cada matriz antes de calcular.'
+        }).then(() => window.history.back());
+        </script>
+    </body>
+    </html>";
+        exit;
+    }
+
 
     // --- Calcula dimensões --- //
     $linhasA = count($matrizA);

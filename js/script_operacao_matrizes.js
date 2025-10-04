@@ -66,20 +66,38 @@ function preencherZerosSeNecessario() {
     }
 }
 
+function validarPreenchimentoMatrizes() {
+    const inputsA = document.querySelectorAll('#matriz-container-A input');
+    const inputsB = document.querySelectorAll('#matriz-container-B input');
+
+    const preenchidoA = Array.from(inputsA).some(input => input.value.trim() !== '');
+    const preenchidoB = Array.from(inputsB).some(input => input.value.trim() !== '');
+
+    if (!preenchidoA || !preenchidoB) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Atenção',
+            text: 'Por favor, preencha pelo menos um valor em cada matriz antes de calcular.'
+        });
+        return false;
+    }
+    return true;
+}
+
+// Modifique a função validarMatrizes para chamar validarPreenchimentoMatrizes
 function validarMatrizes() {
+    if (!validarPreenchimentoMatrizes()) return false;
+
     const operacao = document.querySelector('select[name="operacao"]').value;
 
-    // Obter dimensões reais
     const linhasA = parseInt(document.getElementById('sizeA').value);
     const colunasA = document.querySelectorAll('#matriz-container-A input[name^="matrizA[0]"]').length;
     const linhasB = parseInt(document.getElementById('sizeB').value);
     const colunasB = document.querySelectorAll('#matriz-container-B input[name^="matrizB[0]"]').length;
 
-    // Remove destaques anteriores
     document.getElementById('matriz-container-A').classList.remove('erro-matriz');
     document.getElementById('matriz-container-B').classList.remove('erro-matriz');
 
-    // Validação de compatibilidade
     if (operacao === 'adicao' || operacao === 'subtracao') {
         if (linhasA !== linhasB || colunasA !== colunasB) {
             Swal.fire({
@@ -87,8 +105,6 @@ function validarMatrizes() {
                 title: 'Erro',
                 text: 'As matrizes devem ter o mesmo tamanho, o mesmo número de linhas e colunas.'
             });
-
-            // Destacar ambas as matrizes
             document.getElementById('matriz-container-A').classList.add('erro-matriz');
             document.getElementById('matriz-container-B').classList.add('erro-matriz');
             return false;
@@ -100,19 +116,16 @@ function validarMatrizes() {
                 title: 'Erro',
                 text: 'O número de colunas da matriz da esquerda deve ser igual número de linhas da matriz da direita.'
             });
-
-            // Destacar ambas as matrizes
             document.getElementById('matriz-container-A').classList.add('erro-matriz');
             document.getElementById('matriz-container-B').classList.add('erro-matriz');
             return false;
         }
     }
 
-    // Se passou na validação, preenche zeros automaticamente
     preencherZerosSeNecessario();
-
-    return true; // permite o envio do formulário
+    return true;
 }
+
 
 function validarMatrizEscalar() {
     const inputs = document.querySelectorAll('#matriz-container-A input');
