@@ -41,53 +41,77 @@ function limparMatriz(matriz) {
     inputs.forEach(input => input.value = '');
 }
 
-function validarMatrizes() {
+// --- Preenche zeros automaticamente se houver células vazias ---
+function preencherZerosSeNecessario() {
     let matrizA = document.querySelectorAll('#matriz-container-A input');
     let matrizB = document.querySelectorAll('#matriz-container-B input');
 
-    let preenchidoA = false;
-    let preenchidoB = false;
+    let linhasA = parseInt(document.getElementById('sizeA').value);
+    let colunasA = linhasA; // supondo matriz quadrada
+    let linhasB = parseInt(document.getElementById('sizeB').value);
+    let colunasB = linhasB; // supondo matriz quadrada
 
-    for (let input of matrizA) {
-        const valor = input.value.trim();
-        if (valor !== '') {
-            preenchidoA = true;
-            if (isNaN(valor)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro',
-                    text: 'A Matriz A contém valores inválidos. Digite apenas números.'
-                });
-                return false;
-            }
-        }
-    }
+    let vazioA = Array.from(matrizA).some(input => input.value.trim() === '');
+    let vazioB = Array.from(matrizB).some(input => input.value.trim() === '');
 
-    for (let input of matrizB) {
-        const valor = input.value.trim();
-        if (valor !== '') {
-            preenchidoB = true;
-            if (isNaN(valor)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro',
-                    text: 'A Matriz B contém valores inválidos. Digite apenas números.'
-                });
-                return false;
-            }
-        }
-    }
+    if (vazioA || vazioB) {
+        matrizA.forEach(input => { if (input.value.trim() === '') input.value = '0'; });
+        matrizB.forEach(input => { if (input.value.trim() === '') input.value = '0'; });
 
-    if (!preenchidoA || !preenchidoB) {
         Swal.fire({
-            icon: 'warning',
-            title: 'Atenção',
-            text: 'Por favor, preencha pelo menos um dado na Matriz A e na Matriz B.'
+            icon: 'info',
+            title: 'Aviso',
+            text: 'Algumas células vazias foram preenchidas automaticamente com 0.'
         });
-        return false;
+    }
+}
+
+function validarMatrizes() {
+    const operacao = document.querySelector('select[name="operacao"]').value;
+
+    // Obter dimensões reais
+    const linhasA = parseInt(document.getElementById('sizeA').value);
+    const colunasA = document.querySelectorAll('#matriz-container-A input[name^="matrizA[0]"]').length;
+    const linhasB = parseInt(document.getElementById('sizeB').value);
+    const colunasB = document.querySelectorAll('#matriz-container-B input[name^="matrizB[0]"]').length;
+
+    // Remove destaques anteriores
+    document.getElementById('matriz-container-A').classList.remove('erro-matriz');
+    document.getElementById('matriz-container-B').classList.remove('erro-matriz');
+
+    // Validação de compatibilidade
+    if (operacao === 'adicao' || operacao === 'subtracao') {
+        if (linhasA !== linhasB || colunasA !== colunasB) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'As matrizes devem ter o mesmo tamanho, o mesmo número de linhas e colunas.'
+            });
+
+            // Destacar ambas as matrizes
+            document.getElementById('matriz-container-A').classList.add('erro-matriz');
+            document.getElementById('matriz-container-B').classList.add('erro-matriz');
+            return false;
+        }
+    } else if (operacao === 'multiplicacao') {
+        if (colunasA !== linhasB) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'O número de colunas da matriz da esquerda deve ser igual número de linhas da matriz da direita.'
+            });
+
+            // Destacar ambas as matrizes
+            document.getElementById('matriz-container-A').classList.add('erro-matriz');
+            document.getElementById('matriz-container-B').classList.add('erro-matriz');
+            return false;
+        }
     }
 
-    return true;
+    // Se passou na validação, preenche zeros automaticamente
+    preencherZerosSeNecessario();
+
+    return true; // permite o envio do formulário
 }
 
 function validarMatrizEscalar() {
