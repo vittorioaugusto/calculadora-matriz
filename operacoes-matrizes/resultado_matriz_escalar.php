@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <section class="content">
     <div class="container">
         <div class="detalhamento">
-            <h2>Detalhamento</h2>
+            <h2>Detalhamento da Multiplicação por Escalar</h2>
             <div class="explicacao"><?php echo $explicacao; ?></div>
         </div>
 
